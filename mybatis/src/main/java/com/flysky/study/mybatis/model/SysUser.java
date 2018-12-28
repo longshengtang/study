@@ -6,30 +6,30 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel("用户")
 public class SysUser {
 	/**
-	 * 主键,所属表字段为flysky..sys_user.id
-	 * @flysky_generated  2018-11-07 00:09:09.820
+	 * 主键,所属表字段为sys_user.id
+	 * @flysky_generated
 	 */
 	@ApiModelProperty("主键")
 	private Long id;
 
 	/**
-	 * 名称,所属表字段为flysky..sys_user.name
-	 * @flysky_generated  2018-11-07 00:09:09.821
+	 * 名称,所属表字段为sys_user.name
+	 * @flysky_generated
 	 */
 	@ApiModelProperty("名称")
 	private String name;
 
 	/**
-	 * 获取 主键 字段:flysky..sys_user.id
-	 * @flysky_generated  2018-11-07 00:09:09.821
+	 * 获取 主键 字段:sys_user.id
+	 * @flysky_generated
 	 */
 	public Long getId() {
 		return id;
 	}
 
 	/**
-	 * 设置 主键 字段:flysky..sys_user.id
-	 * @flysky_generated  2018-11-07 00:09:09.821
+	 * 设置 主键 字段:sys_user.id
+	 * @flysky_generated
 	 */
 	public SysUser setId(Long id) {
 		this.id = id;
@@ -37,16 +37,16 @@ public class SysUser {
 	}
 
 	/**
-	 * 获取 名称 字段:flysky..sys_user.name
-	 * @flysky_generated  2018-11-07 00:09:09.821
+	 * 获取 名称 字段:sys_user.name
+	 * @flysky_generated
 	 */
 	public String getName() {
 		return name;
 	}
 
 	/**
-	 * 设置 名称 字段:flysky..sys_user.name
-	 * @flysky_generated  2018-11-07 00:09:09.821
+	 * 设置 名称 字段:sys_user.name
+	 * @flysky_generated
 	 */
 	public SysUser setName(String name) {
 		this.name = name;
