@@ -14,6 +14,8 @@
         <module>mybatis</module>
         <module>mockito</module>
         <module>interview</module>
+        <module>swing</module>
+        <module>DbUnit</module>
     </modules>
 
     <parent>
