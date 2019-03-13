@@ -16,6 +16,7 @@
         <module>interview</module>
         <module>swing</module>
         <module>DbUnit</module>
+        <module>test</module>
     </modules>
 
     <parent>

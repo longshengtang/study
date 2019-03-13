@@ -3,10 +3,10 @@ package com.flysky.study.mybatis.model;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.validation.constraints.Max;
 import java.util.Date;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @ApiModel("用户")
 public class SysUser {
@@ -21,7 +21,7 @@ public class SysUser {
 	 * 名称,所属表字段为sys_user.name
 	 * @flysky_generated
 	 */
-	@Max(value = 512)
+	@Size(max = 512)
 	@NotBlank
 	@ApiModelProperty(value = "名称")
 	private String name;
@@ -29,7 +29,7 @@ public class SysUser {
 	 * 用户名称,所属表字段为sys_user.user_name
 	 * @flysky_generated
 	 */
-	@Max(value = 255)
+	@Size(max = 255)
 	@NotBlank
 	@ApiModelProperty(value = "用户名称", required = true)
 	private String userName;
@@ -37,7 +37,7 @@ public class SysUser {
 	 * 密码,所属表字段为sys_user.password
 	 * @flysky_generated
 	 */
-	@Max(value = 64)
+	@Size(max = 64)
 	@NotBlank
 	@ApiModelProperty(value = "密码", required = true)
 	private String password;
