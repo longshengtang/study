@@ -14,7 +14,7 @@ public class FilterChainImpl implements FilterChain {
             return true;
         }
         Filter filter = filters.get(index++);
-        return filter.doFilter(request, response, this);
+        return filter.doFilter(request, response, this);//请注意，不要使用方法参数filterChain，而要使用this，否则当链中的命令包含FilterChain类型时候，只会被当成Command类型执行
     }
 
     @Override
