@@ -23,4 +23,8 @@ public class PersonService {
 		query.setParameter("name", "%"+name+"%");
 		return query.getResultList();
 	}
+
+	public static void main(String[] args) {
+
+	}
 }

@@ -3,7 +3,7 @@
 <mapper namespace="com.flysky.study.mybatis.mapper.SysUserMapper">
   <resultMap id="BaseResultMap" type="com.flysky.study.mybatis.model.SysUser">
     <!-- @flysky_generated_BaseResultMap -->
-    <id column="id" jdbcType="BIGINT" property="id" />
+    <id column="ids" jdbcType="BIGINT" property="ids" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
     <result column="password" jdbcType="VARCHAR" property="password" />
@@ -13,12 +13,15 @@
   </resultMap>
   <sql id="Base_Column_List">
     <!-- @flysky_generated_BaseColumnList -->
-    id, name, user_name, password, create_time, update_time, test_id
+    ids, name, user_name, password, create_time, update_time, test_id
   </sql>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.flysky.study.mybatis.model.SysUser" useGeneratedKeys="true">
+  <insert id="insert" parameterType="com.flysky.study.mybatis.model.SysUser">
     <!-- @flysky_generated_insertSelective -->
     insert into sys_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ids != null">
+        ids,
+      </if>
       <if test="name != null and name !=''">
         name,
       </if>
@@ -39,6 +42,9 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ids != null">
+        #{ids,jdbcType=BIGINT},
+      </if>
       <if test="name != null and name !=''">
         #{name,jdbcType=VARCHAR},
       </if>
@@ -59,10 +65,50 @@
       </if>
     </trim>
   </insert>
+  <sql id="Base_where_List">
+    <!-- @flysky_generated_selectListWhereClause -->
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="ids != null">
+         and ids = #{ids,jdbcType=BIGINT}
+      </if>
+      <if test="name != null and name != ''">
+         and name = #{name,jdbcType=VARCHAR}
+      </if>
+      <if test="userName != null and userName != ''">
+         and user_name = #{userName,jdbcType=VARCHAR}
+      </if>
+      <if test="password != null and password != ''">
+         and password = #{password,jdbcType=VARCHAR}
+      </if>
+      <if test="createTime != null">
+         and create_time = #{createTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="updateTime != null">
+         and update_time = #{updateTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="testId != null">
+         and test_id = #{testId,jdbcType=INTEGER}
+      </if>
+    </trim>
+  </sql>
+  <select id="selectOne" parameterType="com.flysky.study.mybatis.model.SysUser" resultMap="BaseResultMap">
+    <!-- @flysky_generated_selectOne -->
+    select 
+    <include refid="Base_Column_List" />
+    from sys_user
+    <include refid="Base_where_List" />
+  </select>
+  <select id="selectList" parameterType="com.flysky.study.mybatis.model.SysUser" resultMap="BaseResultMap">
+    <!-- @flysky_generated_selectList -->
+    select 
+    <include refid="Base_Column_List" />
+    from sys_user
+    <include refid="Base_where_List" />
+  </select>
   <delete id="deleteById" parameterType="java.lang.Long">
     <!-- @flysky_generated_deleteById -->
     delete from sys_user
-    where id = #{id,jdbcType=BIGINT}
+    where ids = #{ids,jdbcType=BIGINT}
   </delete>
   <update id="updateByIdSelective" parameterType="com.flysky.study.mybatis.model.SysUser">
     <!-- @flysky_generated_updateByIdSelective -->
@@ -87,7 +133,7 @@
         test_id = #{testId,jdbcType=INTEGER},
       </if>
     </set>
-    where id = #{id,jdbcType=BIGINT}
+    where ids = #{ids,jdbcType=BIGINT}
   </update>
   <update id="updateById" parameterType="com.flysky.study.mybatis.model.SysUser">
     <!-- @flysky_generated_updateById -->
@@ -98,53 +144,13 @@
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       test_id = #{testId,jdbcType=INTEGER}
-    where id = #{id,jdbcType=BIGINT}
+    where ids = #{ids,jdbcType=BIGINT}
   </update>
-  <sql id="Base_where_List">
-    <!-- @flysky_generated_selectListWhereClause -->
-    <trim prefix="where" prefixOverrides="and|or">
-      <if test="id != null">
-         and id = #{id,jdbcType=BIGINT}
-      </if>
-      <if test="name != null and name != ''">
-         and name = #{name,jdbcType=VARCHAR}
-      </if>
-      <if test="userName != null and userName != ''">
-         and user_name = #{userName,jdbcType=VARCHAR}
-      </if>
-      <if test="password != null and password != ''">
-         and password = #{password,jdbcType=VARCHAR}
-      </if>
-      <if test="createTime != null">
-         and create_time = #{createTime,jdbcType=TIMESTAMP}
-      </if>
-      <if test="updateTime != null">
-         and update_time = #{updateTime,jdbcType=TIMESTAMP}
-      </if>
-      <if test="testId != null">
-         and test_id = #{testId,jdbcType=INTEGER}
-      </if>
-    </trim>
-  </sql>
   <select id="selectById" parameterType="java.lang.Long" resultMap="BaseResultMap">
     <!-- @flysky_generated_selectById -->
     select 
     <include refid="Base_Column_List" />
     from sys_user
-    where id = #{id,jdbcType=BIGINT}
-  </select>
-  <select id="selectOne" parameterType="com.flysky.study.mybatis.model.SysUser" resultMap="BaseResultMap">
-    <!-- @flysky_generated_selectOne -->
-    select 
-    <include refid="Base_Column_List" />
-    from sys_user
-    <include refid="Base_where_List" />
-  </select>
-  <select id="selectList" parameterType="com.flysky.study.mybatis.model.SysUser" resultMap="BaseResultMap">
-    <!-- @flysky_generated_selectList -->
-    select 
-    <include refid="Base_Column_List" />
-    from sys_user
-    <include refid="Base_where_List" />
+    where ids = #{ids,jdbcType=BIGINT}
   </select>
 </mapper>

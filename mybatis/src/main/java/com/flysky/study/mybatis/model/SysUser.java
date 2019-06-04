@@ -12,12 +12,6 @@ import javax.validation.constraints.Size;
 public class SysUser {
 
 	/**
-	 * 主键,所属表字段为sys_user.id
-	 * @flysky_generated
-	 */
-	@ApiModelProperty(value = "主键")
-	private Long id;
-	/**
 	 * 名称,所属表字段为sys_user.name
 	 * @flysky_generated
 	 */
@@ -62,23 +56,6 @@ public class SysUser {
 	@NotNull
 	@ApiModelProperty(value = "测试整型", required = true)
 	private Integer testId;
-	/**
-	 * 获取 主键 字段:sys_user.id
-	 * @flysky_generated
-	 */
-	public Long getId() {
-		return id;
-	}
-
-	/**
-	 * 设置 主键 字段:sys_user.id
-	 * @flysky_generated
-	 */
-	public SysUser setId(Long id) {
-		this.id = id;
-		return this;
-	}
-
 	/**
 	 * 获取 名称 字段:sys_user.name
 	 * @flysky_generated
@@ -178,6 +155,30 @@ public class SysUser {
 	 */
 	public SysUser setTestId(Integer testId) {
 		this.testId = testId;
+		return this;
+	}
+
+	/**
+	 * 主键,所属表字段为sys_user.ids
+	 * @flysky_generated
+	 */
+	@NotNull
+	@ApiModelProperty(value = "主键", required = true)
+	private Long ids;
+	/**
+	 * 获取 主键 字段:sys_user.ids
+	 * @flysky_generated
+	 */
+	public Long getIds() {
+		return ids;
+	}
+
+	/**
+	 * 设置 主键 字段:sys_user.ids
+	 * @flysky_generated
+	 */
+	public SysUser setIds(Long ids) {
+		this.ids = ids;
 		return this;
 	}
 }

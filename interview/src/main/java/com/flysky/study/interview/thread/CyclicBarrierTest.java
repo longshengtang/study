@@ -7,10 +7,10 @@ import java.util.concurrent.Executors;
 
 public class CyclicBarrierTest {
 
-	public static void main(String[] args) {
-		System.out.println(Thread.currentThread().getName());
-		new CyclicBarrierTest().test();
-	}
+//	public static void main(String[] args) {
+//		System.out.println(Thread.currentThread().getName());
+//		new CyclicBarrierTest().test();
+//	}
 
 	private void test() {
 		for (int i = 0; i < count; i++) {

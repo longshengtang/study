@@ -2,9 +2,9 @@ package com.flysky.study.interview;
 
 public class ExTest extends B implements A {
 
-	public static void main(String[] args) {
-		new CC().a();
-	}
+//	public static void main(String[] args) {
+//		new CC().a();
+//	}
 
 	public void pX(){
 //		System.out.println(x);//x出错，ambiguous模糊不清，有歧义

@@ -24,7 +24,7 @@ public class TestController {
     public Object test() {
         System.out.println("fsjdfa;f");
         SysUser/**/ sysUser = sysUserMapper.selectById(1L);
-        System.out.println(sysUser.getId() + " 333 " + sysUser.getName());
+//        System.out.println(sysUser.getId() + " 333 " + sysUser.getName());
         return sysUser;
     }
 

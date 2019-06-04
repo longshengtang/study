@@ -7,9 +7,9 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class CacheDemo {
 
-    public static void main(String[] args) {
-        new CacheDemo().test();
-    }
+//    public static void main(String[] args) {
+//        new CacheDemo().test();
+//    }
 
     private void test() {
         for (int j = 0; j < 3; j++) {

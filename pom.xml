@@ -10,13 +10,12 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>redis</module>
-        <module>mongo</module>
         <module>mybatis</module>
         <module>mockito</module>
         <module>interview</module>
         <module>swing</module>
         <module>DbUnit</module>
-        <module>test</module>
+        <module>dp</module>
     </modules>
 
     <parent>

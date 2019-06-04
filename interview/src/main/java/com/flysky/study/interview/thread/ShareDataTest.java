@@ -2,9 +2,9 @@ package com.flysky.study.interview.thread;
 
 public class ShareDataTest {
 
-	public static void main(String[] args) {
-		test();
-	}
+//	public static void main(String[] args) {
+//		test();
+//	}
 
 	private static void test() {
 		final MyData sd = new MyData();
