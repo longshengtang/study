@@ -16,8 +16,14 @@ public class Calc {
     }
 
     public String statement(JsonArray invoices, JsonObject plays) {
+        JsonObject statementData=new JsonObject();
+        statementData.add("customer",invoices.get(0).getAsJsonObject().get("customer"));
+        return renderPlainText(statementData,invoices);
+    }
+
+    private String renderPlainText(JsonObject data, JsonArray invoices) {
         JsonObject invoice = (JsonObject) invoices.get(0);
-        String result = "Statement for " + invoice.get("customer").getAsString() + "\n";
+        String result = "Statement for " + data.get("customer").getAsString() + "\n";
         for (Object object : invoice.getAsJsonArray("performances")) {
             JsonObject perf = (JsonObject) object;
             // print line for this order
