@@ -16,18 +16,25 @@ public class Calc {
     }
 
     public String statement(JsonArray invoices, JsonObject plays) {
-        long totalAmount = 0;
         JsonObject invoice = (JsonObject) invoices.get(0);
         String result = "Statement for " + invoice.get("customer").getAsString() + "\n";
         for (Object object : invoice.getAsJsonArray("performances")) {
             JsonObject perf = (JsonObject) object;
             // print line for this order
             result += " " + playFor(perf).get("name").getAsString() + ": " + format(amountFor(perf) / 100) + " (" + perf.get("audience").getAsLong() + " seats)\n";
-            totalAmount += amountFor(perf);
         }
-        result += "Amount owed is " + format(totalAmount / 100) + "\n";
+        result += "Amount owed is " + format(appleSauce(invoice) / 100) + "\n";
         result += "You earned " + totalVolumeCredits(invoice) + " credits\n";
         return result;
+    }
+
+    private long appleSauce(JsonObject invoice) {
+        long totalAmount = 0;
+        for (Object object : invoice.getAsJsonArray("performances")) {
+            JsonObject perf = (JsonObject) object;
+            totalAmount += amountFor(perf);
+        }
+        return totalAmount;
     }
 
     private long totalVolumeCredits(JsonObject invoice) {
