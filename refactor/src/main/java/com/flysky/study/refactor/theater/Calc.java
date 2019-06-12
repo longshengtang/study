@@ -25,7 +25,7 @@ public class Calc {
         for (Object object : invoice.getAsJsonArray("performances")) {
             JsonObject perf = (JsonObject) object;
             // add volume credits
-            volumeCredits += Math.max(perf.get("audience").getAsLong() - 30, 0);
+            volumeCredits += volumeCreditsFor(perf);
             // add extra credit for every ten comedy attendees
             if ("comedy".equals(playFor(perf).get("type").getAsString()))
                 volumeCredits += Math.floor(perf.get("audience").getAsLong() / 5);
@@ -35,6 +35,12 @@ public class Calc {
         }
         result += "Amount owed is " + format.format(totalAmount / 100) + "\n";
         result += "You earned " + volumeCredits + " credits\n";
+        return result;
+    }
+
+    private long volumeCreditsFor(JsonObject perf) {
+        long result = 0;
+        result += Math.max(perf.get("audience").getAsLong() - 30, 0);
         return result;
     }
 
