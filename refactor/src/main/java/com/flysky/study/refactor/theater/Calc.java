@@ -18,11 +18,12 @@ public class Calc {
     public String statement(JsonArray invoices, JsonObject plays) {
         JsonObject statementData=new JsonObject();
         statementData.add("customer",invoices.get(0).getAsJsonObject().get("customer"));
-        return renderPlainText(statementData,invoices);
+        statementData.add("performances",invoices.get(0).getAsJsonObject().get("performances"));
+        return renderPlainText(statementData);
     }
 
-    private String renderPlainText(JsonObject data, JsonArray invoices) {
-        JsonObject invoice = (JsonObject) invoices.get(0);
+    private String renderPlainText(JsonObject data) {
+        JsonObject invoice = data;
         String result = "Statement for " + data.get("customer").getAsString() + "\n";
         for (Object object : invoice.getAsJsonArray("performances")) {
             JsonObject perf = (JsonObject) object;
