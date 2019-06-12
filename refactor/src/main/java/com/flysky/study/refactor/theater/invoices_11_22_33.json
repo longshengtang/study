@@ -1,0 +1,20 @@
+[
+  {
+    "customer": "Fly",
+    "performances": [
+      {
+        "playID": "hamlet",
+        "audience": 30
+      },
+      {
+        "playID": "as-like",
+        "audience": 40
+      },
+      {
+        "playID": "othello",
+        "audience": 50
+      }
+    ],
+    "result": "Statement for Fly\n Hamlet: 400.00 (30 seats)\n As You Like It: 620.00 (40 seats)\n Othello: 600.00 (50 seats)\nAmount owed is 1,620.00\nYou earned 38 credits\n"
+  }
+]
