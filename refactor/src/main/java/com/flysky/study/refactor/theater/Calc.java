@@ -20,8 +20,6 @@ public class Calc {
         long volumeCredits = 0;
         JsonObject invoice = (JsonObject) invoices.get(0);
         String result = "Statement for " + invoice.get("customer").getAsString() + "\n";
-        NumberFormat format = DecimalFormat.getInstance(Locale.US);
-        format.setMinimumFractionDigits(2);
         for (Object object : invoice.getAsJsonArray("performances")) {
             JsonObject perf = (JsonObject) object;
             // add volume credits
@@ -30,12 +28,20 @@ public class Calc {
             if ("comedy".equals(playFor(perf).get("type").getAsString()))
                 volumeCredits += Math.floor(perf.get("audience").getAsLong() / 5);
             // print line for this order
-            result += " " + playFor(perf).get("name").getAsString() + ": " + format.format(amountFor(perf) / 100) + " (" + perf.get("audience").getAsLong() + " seats)\n";
+            result += " " + playFor(perf).get("name").getAsString() + ": " + format(amountFor(perf) / 100) + " (" + perf.get("audience").getAsLong() + " seats)\n";
             totalAmount += amountFor(perf);
         }
-        result += "Amount owed is " + format.format(totalAmount / 100) + "\n";
+        result += "Amount owed is " + format(totalAmount / 100) + "\n";
         result += "You earned " + volumeCredits + " credits\n";
         return result;
+    }
+
+    private String format(long number) {
+
+        NumberFormat format = DecimalFormat.getInstance(Locale.US);
+        format.setMinimumFractionDigits(2);
+
+        return format.format(number);
     }
 
     private long volumeCreditsFor(JsonObject perf) {
@@ -44,7 +50,7 @@ public class Calc {
         return result;
     }
 
-    private JsonObject playFor(JsonObject perf){
+    private JsonObject playFor(JsonObject perf) {
         return (JsonObject) plays.get(perf.get("playID").getAsString());
     }
 
