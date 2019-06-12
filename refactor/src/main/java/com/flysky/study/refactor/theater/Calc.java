@@ -23,18 +23,18 @@ public class Calc {
             // print line for this order
             result += " " + playFor(perf).get("name").getAsString() + ": " + format(amountFor(perf) / 100) + " (" + perf.get("audience").getAsLong() + " seats)\n";
         }
-        result += "Amount owed is " + format(appleSauce(invoice) / 100) + "\n";
+        result += "Amount owed is " + format(totalAmount(invoice) / 100) + "\n";
         result += "You earned " + totalVolumeCredits(invoice) + " credits\n";
         return result;
     }
 
-    private long appleSauce(JsonObject invoice) {
-        long totalAmount = 0;
+    private long totalAmount(JsonObject invoice) {
+        long result = 0;
         for (Object object : invoice.getAsJsonArray("performances")) {
             JsonObject perf = (JsonObject) object;
-            totalAmount += amountFor(perf);
+            result += amountFor(perf);
         }
-        return totalAmount;
+        return result;
     }
 
     private long totalVolumeCredits(JsonObject invoice) {
