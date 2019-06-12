@@ -27,7 +27,7 @@ public class CalcTest {
         Calc calc=new Calc(plays);
         String result = calc.statement(invoices, plays);
         Assert.assertEquals("不一样",expected,result);
-        System.out.println("===================");
-        System.out.println(result);
+//        System.out.println("===================");
+//        System.out.println(result);
     }
 }

@@ -24,16 +24,14 @@ public class Calc {
         format.setMinimumFractionDigits(2);
         for (Object object : invoice.getAsJsonArray("performances")) {
             JsonObject perf = (JsonObject) object;
-//            JsonObject play = (JsonObject) plays.get(perf.get("playID").getAsString());
-            long thisAmount = amountFor(perf);
             // add volume credits
             volumeCredits += Math.max(perf.get("audience").getAsLong() - 30, 0);
             // add extra credit for every ten comedy attendees
             if ("comedy".equals(playFor(perf).get("type").getAsString()))
                 volumeCredits += Math.floor(perf.get("audience").getAsLong() / 5);
             // print line for this order
-            result += " " + playFor(perf).get("name").getAsString() + ": " + format.format(thisAmount / 100) + " (" + perf.get("audience").getAsLong() + " seats)\n";
-            totalAmount += thisAmount;
+            result += " " + playFor(perf).get("name").getAsString() + ": " + format.format(amountFor(perf) / 100) + " (" + perf.get("audience").getAsLong() + " seats)\n";
+            totalAmount += amountFor(perf);
         }
         result += "Amount owed is " + format.format(totalAmount / 100) + "\n";
         result += "You earned " + volumeCredits + " credits\n";
