@@ -18,12 +18,13 @@ public class CalcTest {
     }
 
     private void commTest(String invoiceName) {
-        Calc calc=new Calc();
         String base="/Users/longlong/flysky/code/study/refactor/src/main/java/com/flysky/study/refactor/theater/";
         Gson gson=new Gson();
         JsonArray invoices = gson.fromJson(FileReader.parse(base+invoiceName),JsonArray.class);
         JsonObject plays = gson.fromJson(FileReader.parse(base+"plays.json"),JsonObject.class);
         String expected = invoices.get(0).getAsJsonObject().get("result").getAsString();
+
+        Calc calc=new Calc(plays);
         String result = calc.statement(invoices, plays);
         Assert.assertEquals("不一样",expected,result);
         System.out.println("===================");
