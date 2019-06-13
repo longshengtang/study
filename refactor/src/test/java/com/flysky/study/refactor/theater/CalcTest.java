@@ -25,7 +25,7 @@ public class CalcTest {
         String expected = invoices.get(0).getAsJsonObject().get("result").getAsString();
 
         Calc calc=new Calc(plays);
-        String result = calc.statement(invoices, plays);
+        String result = calc.statement(invoices);
         Assert.assertEquals("不一样",expected,result);
 //        System.out.println("===================");
 //        System.out.println(result);
