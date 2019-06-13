@@ -6,9 +6,7 @@ import com.google.gson.JsonObject;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
-public class CalcTest {
+public class StatementTest {
 
     @Test
     public void statement() {
@@ -24,8 +22,8 @@ public class CalcTest {
         JsonObject plays = gson.fromJson(FileReader.parse(base+"plays.json"),JsonObject.class);
         String expected = invoices.get(0).getAsJsonObject().get("result").getAsString();
 
-        Calc calc=new Calc(plays);
-        String result = calc.statement(invoices);
+        Statement statement =new Statement(plays);
+        String result = statement.statement(invoices);
         Assert.assertEquals("不一样",expected,result);
 //        System.out.println("===================");
 //        System.out.println(result);
