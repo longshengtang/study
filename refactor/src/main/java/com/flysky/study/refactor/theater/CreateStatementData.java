@@ -1,5 +1,8 @@
 package com.flysky.study.refactor.theater;
 
+import com.flysky.study.refactor.theater.calculator.ComedyCalculator;
+import com.flysky.study.refactor.theater.calculator.PerformanceCalculator;
+import com.flysky.study.refactor.theater.calculator.TragedyCalculator;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -23,25 +26,37 @@ public class CreateStatementData {
         JsonArray performances = invoices.get(0).getAsJsonObject().get("performances").getAsJsonArray();
         enrichPerformance(performances);
         result.add("performances", performances);
-        result.addProperty("totalAmount",totalAmount(result));
-        result.addProperty("totalVolumeCredits",totalVolumeCredits(result));
+        result.addProperty("totalAmount", totalAmount(result));
+        result.addProperty("totalVolumeCredits", totalVolumeCredits(result));
         return result;
     }
 
     public void enrichPerformance(JsonArray performances) {
         for (Iterator<JsonElement> it = performances.iterator(); it.hasNext(); ) {
             JsonObject perf = (JsonObject) it.next();
-            JsonObject play = playFor(perf);
-            perf.add("play", play);
-            perf.addProperty("amount", amountFor(perf));
-            perf.addProperty("volumeCredits", volumeCreditsFor(perf));
+            PerformanceCalculator calculator = createPerformanceCalculator(perf, playFor(perf));
+            perf.add("play", calculator.getPlay());
+            perf.addProperty("amount", calculator.amount());
+            perf.addProperty("volumeCredits", calculator.volumeCredits());
         }
     }
+
+    private PerformanceCalculator createPerformanceCalculator(JsonObject perf, JsonObject play) {
+        switch (play.get("type").getAsString()) {
+            case "tragedy":
+                return new TragedyCalculator(perf, play);
+            case "comedy":
+                return new ComedyCalculator(perf, play);
+            default:
+                throw new RuntimeException("unknown type: " + play.get("type").getAsString());
+        }
+    }
+
     public long totalAmount(JsonObject invoice) {
         long result = 0;
         for (Object object : invoice.getAsJsonArray("performances")) {
             JsonObject perf = (JsonObject) object;
-            result += amountFor(perf);
+            result += perf.get("amount").getAsLong();
         }
         return result;
     }
@@ -52,14 +67,6 @@ public class CreateStatementData {
             JsonObject perf = (JsonObject) object;
             result += perf.get("volumeCredits").getAsLong();
         }
-        return result;
-    }
-
-    public long volumeCreditsFor(JsonObject perf) {
-        long result = 0;
-        result += Math.max(perf.get("audience").getAsLong() - 30, 0);
-        if ("comedy".equals(perf.get("play").getAsJsonObject().get("type").getAsString()))
-            result += Math.floor(perf.get("audience").getAsLong() / 5);
         return result;
     }
 
@@ -74,27 +81,5 @@ public class CreateStatementData {
 
     public JsonObject playFor(JsonObject perf) {
         return (JsonObject) plays.get(perf.get("playID").getAsString());
-    }
-
-    public long amountFor(JsonObject perf) {
-        long result = 0;
-        switch (perf.get("play").getAsJsonObject().get("type").getAsString()) {
-            case "tragedy":
-                result = 40000;
-                if (perf.get("audience").getAsLong() > 30) {
-                    result += 1000 * (perf.get("audience").getAsLong() - 30);
-                }
-                break;
-            case "comedy":
-                result = 30000;
-                if (perf.get("audience").getAsLong() > 20) {
-                    result += 10000 + 500 * (perf.get("audience").getAsLong() - 20);
-                }
-                result += 300 * perf.get("audience").getAsLong();
-                break;
-            default:
-                throw new Error("unknown type: ${play.type}");
-        }
-        return result;
     }
 }
