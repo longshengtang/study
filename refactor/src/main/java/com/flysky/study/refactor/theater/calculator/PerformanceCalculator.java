@@ -41,11 +41,6 @@ public class PerformanceCalculator {
 
 
     public long volumeCredits() {
-//        long result = 0;
-//        result += Math.max(performance.get("audience").getAsLong() - 30, 0);
-//        if ("comedy".equals(this.play.getAsJsonObject().get("type").getAsString()))
-//            result += Math.floor(performance.get("audience").getAsLong() / 5);
-//        return result;
         return Math.max(performance.get("audience").getAsLong() - 30, 0);
     }
 }
