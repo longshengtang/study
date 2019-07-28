@@ -7,9 +7,10 @@ import java.util.Date;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 
 @ApiModel("用户")
-public class SysUser {
+public class SysUser implements Serializable {
 
 	/**
 	 * 名称,所属表字段为sys_user.name
@@ -25,7 +26,7 @@ public class SysUser {
 	 */
 	@Size(max = 255)
 	@NotBlank
-	@ApiModelProperty(value = "用户名称", required = true)
+	@ApiModelProperty(value = "用户名称")
 	private String userName;
 	/**
 	 * 密码,所属表字段为sys_user.password
@@ -33,7 +34,7 @@ public class SysUser {
 	 */
 	@Size(max = 64)
 	@NotBlank
-	@ApiModelProperty(value = "密码", required = true)
+	@ApiModelProperty(value = "密码")
 	private String password;
 	/**
 	 * 创建日期,所属表字段为sys_user.create_time
@@ -54,7 +55,7 @@ public class SysUser {
 	 * @flysky_generated
 	 */
 	@NotNull
-	@ApiModelProperty(value = "测试整型", required = true)
+	@ApiModelProperty(value = "测试整型")
 	private Integer testId;
 	/**
 	 * 获取 名称 字段:sys_user.name
@@ -159,26 +160,25 @@ public class SysUser {
 	}
 
 	/**
-	 * 主键,所属表字段为sys_user.ids
+	 * 主键,所属表字段为sys_user.id
 	 * @flysky_generated
 	 */
-	@NotNull
-	@ApiModelProperty(value = "主键", required = true)
-	private Long ids;
+	@ApiModelProperty(value = "主键")
+	private Long id;
 	/**
-	 * 获取 主键 字段:sys_user.ids
+	 * 获取 主键 字段:sys_user.id
 	 * @flysky_generated
 	 */
-	public Long getIds() {
-		return ids;
+	public Long getId() {
+		return id;
 	}
 
 	/**
-	 * 设置 主键 字段:sys_user.ids
+	 * 设置 主键 字段:sys_user.id
 	 * @flysky_generated
 	 */
-	public SysUser setIds(Long ids) {
-		this.ids = ids;
+	public SysUser setId(Long id) {
+		this.id = id;
 		return this;
 	}
 }
