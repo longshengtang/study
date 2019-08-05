@@ -2,7 +2,8 @@ package com.flysky.study.dbunit.mapper;
 
 import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure;
 import com.alibaba.fastjson.JSON;
-import com.flysky.study.dbunit.model.SystemLog;
+import com.flysky.study.mybatis.mapper.SystemLogMapper;
+import com.flysky.study.mybatis.model.SystemLog;
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import org.assertj.core.api.Assertions;
@@ -23,7 +24,7 @@ import org.springframework.test.context.transaction.TransactionalTestExecutionLi
 import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringRunner.class)
-@MapperScan(basePackages = {"com.flysky.study.dbunit.mapper"})
+@MapperScan(basePackages = {"com.flysky.study.mybatis.mapper"})
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
 @ContextConfiguration(classes = {
         DruidDataSourceAutoConfigure.class
@@ -40,6 +41,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @DatabaseSetup("system_log.xml")
 public class SystemLogMapperTest {
+
     @Autowired
     private SystemLogMapper mapper;
 
