@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.flysky.study.mybatis.mapper.SysRoleMapper">
+  <resultMap id="BaseResultMap" type="com.flysky.study.mybatis.model.SysRole">
+    <!-- @flysky_generated_BaseResultMap -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!-- @flysky_generated_BaseColumnList -->
+    id, name
+  </sql>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.flysky.study.mybatis.model.SysRole" useGeneratedKeys="true">
+    <!-- @flysky_generated_insertSelective -->
+    insert into sys_role
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null and name !=''">
+        name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null and name !=''">
+        #{name,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <delete id="deleteById" parameterType="java.lang.Long">
+    <!-- @flysky_generated_deleteById -->
+    delete from sys_role
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <update id="updateByIdSelective" parameterType="com.flysky.study.mybatis.model.SysRole">
+    <!-- @flysky_generated_updateByIdSelective -->
+    update sys_role
+    <set>
+      <if test="name != null and name !=''">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateById" parameterType="com.flysky.study.mybatis.model.SysRole">
+    <!-- @flysky_generated_updateById -->
+    update sys_role
+    set name = #{name,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <sql id="Base_where_List">
+    <!-- @flysky_generated_selectListWhereClause -->
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="id != null">
+         and id = #{id,jdbcType=BIGINT}
+      </if>
+      <if test="name != null and name != ''">
+         and name = #{name,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <select id="selectById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!-- @flysky_generated_selectById -->
+    select 
+    <include refid="Base_Column_List" />
+    from sys_role
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectOne" parameterType="com.flysky.study.mybatis.model.SysRole" resultMap="BaseResultMap">
+    <!-- @flysky_generated_selectOne -->
+    select 
+    <include refid="Base_Column_List" />
+    from sys_role
+    <include refid="Base_where_List" />
+  </select>
+  <select id="selectList" parameterType="com.flysky.study.mybatis.model.SysRole" resultMap="BaseResultMap">
+    <!-- @flysky_generated_selectList -->
+    select 
+    <include refid="Base_Column_List" />
+    from sys_role
+    <include refid="Base_where_List" />
+  </select>
+</mapper>
