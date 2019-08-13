@@ -9,10 +9,12 @@ spring:
       username: root
       password: 12345678
       driver-class-name: com.mysql.cj.jdbc.Driver
-logging:
-  level:
-    root: WARN
-    org.springframework.web: WARN
+
+#logging:
+#  level:
+#    root: info
+#    org.springframework: off
+
 #查看当前SpringBoot AutoConfig的一些配置项
 #debug: true
 mybatis:

@@ -9,23 +9,23 @@ import javax.validation.constraints.Size;
 @ApiModel("角色")
 public class SysRole implements Serializable {
 	/**
-	 * 主键,所属表字段为sys_role.id
+	 * 主键
 	 * @flysky_generated
 	 */
-	@ApiModelProperty(value="主键")
+	@ApiModelProperty(value = "主键")
 	private Long id;
 
 	/**
-	 * 名称,所属表字段为sys_role.name
+	 * 名称
 	 * @flysky_generated
 	 */
-	@Size(max=255)
+	@Size(max = 255)
 	@NotBlank
-	@ApiModelProperty(value="名称",required=true)
+	@ApiModelProperty(value = "名称", required = true)
 	private String name;
 
 	/**
-	 * 获取 主键 字段:sys_role.id
+	 * 获取 主键
 	 * @flysky_generated
 	 */
 	public Long getId() {
@@ -33,7 +33,7 @@ public class SysRole implements Serializable {
 	}
 
 	/**
-	 * 设置 主键 字段:sys_role.id
+	 * 设置 主键
 	 * @flysky_generated
 	 */
 	public SysRole setId(Long id) {
@@ -42,7 +42,7 @@ public class SysRole implements Serializable {
 	}
 
 	/**
-	 * 获取 名称 字段:sys_role.name
+	 * 获取 名称
 	 * @flysky_generated
 	 */
 	public String getName() {
@@ -50,7 +50,7 @@ public class SysRole implements Serializable {
 	}
 
 	/**
-	 * 设置 名称 字段:sys_role.name
+	 * 设置 名称
 	 * @flysky_generated
 	 */
 	public SysRole setName(String name) {
@@ -59,14 +59,17 @@ public class SysRole implements Serializable {
 	}
 
 	/**
-	 * ,sys_role
 	 * @flysky_generated
 	 */
 	@Override
 	public String toString() {
-		return "SysRole{"+
-		"id="+id+
-		",name+='"+name+"'"+
-		"}";
+		StringBuilder sb = new StringBuilder();
+		sb.append(getClass().getSimpleName());
+		sb.append(" [");
+		sb.append("Hash = ").append(hashCode());
+		sb.append(", id=").append(id);
+		sb.append(", name=").append(name);
+		sb.append("]");
+		return sb.toString();
 	}
 }

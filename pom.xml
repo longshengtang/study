@@ -19,6 +19,7 @@
         <module>refactor</module>
         <module>tdd</module>
         <module>regex</module>
+        <module>springweb</module>
     </modules>
 
     <parent>

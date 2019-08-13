@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.flysky.study.mybatis.mapper.SysUserMapper">
   <resultMap id="BaseResultMap" type="com.flysky.study.mybatis.model.SysUser">
-    <!-- @flysky_generated_BaseResultMap  2019-08-01 23:18:42.619 -->
+    <!-- @flysky_generated_BaseResultMap  2019-08-11 16:46:40.078 -->
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
@@ -12,11 +12,11 @@
     <result column="test_id" jdbcType="INTEGER" property="testId" />
   </resultMap>
   <sql id="Base_Column_List">
-    <!-- @flysky_generated_BaseColumnList  2019-08-01 23:18:42.619 -->
+    <!-- @flysky_generated_BaseColumnList  2019-08-11 16:46:40.078 -->
     id, name, user_name, password, create_time, update_time, test_id
   </sql>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.flysky.study.mybatis.model.SysUser" useGeneratedKeys="true">
-    <!-- @flysky_generated_insertSelective  2019-08-01 23:18:42.619 -->
+    <!-- @flysky_generated_insertSelective  2019-08-11 16:46:40.079 -->
     insert into sys_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="name != null and name !=''">
@@ -60,7 +60,7 @@
     </trim>
   </insert>
   <sql id="Base_where_List">
-    <!-- @flysky_generated_selectListWhereClause  2019-08-01 23:18:42.621 -->
+    <!-- @flysky_generated_selectListWhereClause  2019-08-11 16:46:40.080 -->
     <trim prefix="where" prefixOverrides="and|or">
       <if test="id != null">
          and id = #{id,jdbcType=BIGINT}
@@ -86,26 +86,26 @@
     </trim>
   </sql>
   <select id="selectOne" parameterType="com.flysky.study.mybatis.model.SysUser" resultMap="BaseResultMap">
-    <!-- @flysky_generated_selectOne  2019-08-01 23:18:42.621 -->
+    <!-- @flysky_generated_selectOne  2019-08-11 16:46:40.081 -->
     select 
     <include refid="Base_Column_List" />
     from sys_user
     <include refid="Base_where_List" />
   </select>
   <select id="selectList" parameterType="com.flysky.study.mybatis.model.SysUser" resultMap="BaseResultMap">
-    <!-- @flysky_generated_selectList  2019-08-01 23:18:42.622 -->
+    <!-- @flysky_generated_selectList  2019-08-11 16:46:40.081 -->
     select 
     <include refid="Base_Column_List" />
     from sys_user
     <include refid="Base_where_List" />
   </select>
   <delete id="deleteById" parameterType="java.lang.Long">
-    <!-- @flysky_generated_deleteById  2019-08-01 23:18:42.620 -->
+    <!-- @flysky_generated_deleteById  2019-08-11 16:46:40.079 -->
     delete from sys_user
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <update id="updateByIdSelective" parameterType="com.flysky.study.mybatis.model.SysUser">
-    <!-- @flysky_generated_updateByIdSelective  2019-08-01 23:18:42.620 -->
+    <!-- @flysky_generated_updateByIdSelective  2019-08-11 16:46:40.079 -->
     update sys_user
     <set>
       <if test="name != null and name !=''">
@@ -130,7 +130,7 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateById" parameterType="com.flysky.study.mybatis.model.SysUser">
-    <!-- @flysky_generated_updateById  2019-08-01 23:18:42.620 -->
+    <!-- @flysky_generated_updateById  2019-08-11 16:46:40.080 -->
     update sys_user
     set name = #{name,jdbcType=VARCHAR},
       user_name = #{userName,jdbcType=VARCHAR},
@@ -141,7 +141,7 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
   <select id="selectById" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    <!-- @flysky_generated_selectById  2019-08-01 23:18:42.621 -->
+    <!-- @flysky_generated_selectById  2019-08-11 16:46:40.081 -->
     select 
     <include refid="Base_Column_List" />
     from sys_user

@@ -8,39 +8,36 @@ import javax.validation.constraints.Size;
 @ApiModel("")
 public class SystemLog implements Serializable {
 	/**
-	 * 主键,所属表字段为system_log.id
+	 * 主键
 	 * @flysky_generated
 	 */
-	@ApiModelProperty(value="主键")
+	@ApiModelProperty(value = "主键")
 	private Long id;
 
 	/**
-	 * 菜单id,所属表字段为system_log.menu_id
+	 * 菜单id
 	 * @flysky_generated
 	 */
-	
-	@ApiModelProperty(value="菜单id")
+	@ApiModelProperty(value = "菜单id")
 	private Integer menuId;
 
 	/**
-	 * 操作id,所属表字段为system_log.operation_id
+	 * 操作id
 	 * @flysky_generated
 	 */
-	
-	@ApiModelProperty(value="操作id")
+	@ApiModelProperty(value = "操作id")
 	private Integer operationId;
 
 	/**
-	 * 操作内容,所属表字段为system_log.content
+	 * 操作内容
 	 * @flysky_generated
 	 */
-	@Size(max=65535)
-	
-	@ApiModelProperty(value="操作内容")
+	@Size(max = 65535)
+	@ApiModelProperty(value = "操作内容")
 	private String content;
 
 	/**
-	 * 获取 主键 字段:system_log.id
+	 * 获取 主键
 	 * @flysky_generated
 	 */
 	public Long getId() {
@@ -48,7 +45,7 @@ public class SystemLog implements Serializable {
 	}
 
 	/**
-	 * 设置 主键 字段:system_log.id
+	 * 设置 主键
 	 * @flysky_generated
 	 */
 	public SystemLog setId(Long id) {
@@ -57,7 +54,7 @@ public class SystemLog implements Serializable {
 	}
 
 	/**
-	 * 获取 菜单id 字段:system_log.menu_id
+	 * 获取 菜单id
 	 * @flysky_generated
 	 */
 	public Integer getMenuId() {
@@ -65,7 +62,7 @@ public class SystemLog implements Serializable {
 	}
 
 	/**
-	 * 设置 菜单id 字段:system_log.menu_id
+	 * 设置 菜单id
 	 * @flysky_generated
 	 */
 	public SystemLog setMenuId(Integer menuId) {
@@ -74,7 +71,7 @@ public class SystemLog implements Serializable {
 	}
 
 	/**
-	 * 获取 操作id 字段:system_log.operation_id
+	 * 获取 操作id
 	 * @flysky_generated
 	 */
 	public Integer getOperationId() {
@@ -82,7 +79,7 @@ public class SystemLog implements Serializable {
 	}
 
 	/**
-	 * 设置 操作id 字段:system_log.operation_id
+	 * 设置 操作id
 	 * @flysky_generated
 	 */
 	public SystemLog setOperationId(Integer operationId) {
@@ -91,7 +88,7 @@ public class SystemLog implements Serializable {
 	}
 
 	/**
-	 * 获取 操作内容 字段:system_log.content
+	 * 获取 操作内容
 	 * @flysky_generated
 	 */
 	public String getContent() {
@@ -99,11 +96,21 @@ public class SystemLog implements Serializable {
 	}
 
 	/**
-	 * 设置 操作内容 字段:system_log.content
+	 * 设置 操作内容
 	 * @flysky_generated
 	 */
 	public SystemLog setContent(String content) {
 		this.content = content;
 		return this;
+	}
+
+	/**
+	 * @flysky_generated
+	 */
+	@Override
+	public String toString() {
+		return "SystemLog{" + "id=" + id + ",menuId=" + menuId
+				+ ",operationId=" + operationId + ",content+='" + content + "'"
+				+ "}";
 	}
 }

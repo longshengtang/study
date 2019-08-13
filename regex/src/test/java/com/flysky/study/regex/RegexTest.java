@@ -21,6 +21,24 @@ public class RegexTest {
     }
 
     @Test
+    public void testMultiParagraph(){
+        String src="...with.\n\n\n  \nTherefore...";
+        String result = r.multiParagraph(src);
+        String actual="...with.\n<p>\n<p>\n<p>\nTherefore...0";
+        assertThat(result).isEqualTo(actual);
+    }
+
+    @Test
+    public void convertHttpUrl(){
+//        String httpUrl="this is a url http://www.baidu.com/abc?uid=3&name=4&value=5,you can copy it!";
+        String httpUrl="http://www.baidu.com/a.!,,,,";
+        String result = r.convertHttpUrl(httpUrl);
+//        String  expected="http://www.baidu.com/abc?uid=3&name=4&value=5";
+        String  expected="http://www.baidu.com/a";
+        assertThat(result).isEqualTo(expected);
+    }
+
+    @Test
     public void emptyReturnEmpty() {
         assertT(r.duplicatedWords(""), Collections.emptyList());
     }
@@ -37,7 +55,7 @@ public class RegexTest {
 
     @Test
     public void hasDuplicatedWordInTwoLines() {
-        assertT(r.duplicatedWords("It has a duplicated word\nis\nis no"), "word word", "is is");
+        assertT(r.duplicatedWords("It has a duplicated word word\nthis is\nis ha<html>ha no"), "word word", "is\nis","ha<html>ha");
     }
 
     private void assertT(List<? extends Object> actual, Object... expected) {
