@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <system_log menu_id="1" operation_id="1" content="2323"/>
+  <system_log menu_id="2" operation_id="2" content="23232323"/>
+  <system_log menu_id="3" operation_id="2" content="3333"/>
+  <system_log content="testInsert" operation_id="1" menu_id="3"/>
+</dataset>

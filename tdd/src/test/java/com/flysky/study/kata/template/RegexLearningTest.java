@@ -50,7 +50,7 @@ public class RegexLearningTest {
     }
     @Test
     public void testCaret() {
-        Matcher matcher = Pattern.compile("[^^]").matcher("s");
+        Matcher matcher = Pattern.compile("[\\^]").matcher("^");
         assertThat(matcher.matches()).isTrue();
     }
     @Test

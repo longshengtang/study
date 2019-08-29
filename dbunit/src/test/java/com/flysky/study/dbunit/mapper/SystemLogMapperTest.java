@@ -6,7 +6,10 @@ import com.flysky.study.mybatis.mapper.SystemLogMapper;
 import com.flysky.study.mybatis.model.SystemLog;
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
+import com.github.springtestdbunit.annotation.ExpectedDatabase;
+import com.github.springtestdbunit.assertion.DatabaseAssertionMode;
 import org.assertj.core.api.Assertions;
+import org.dbunit.dataset.filter.DefaultColumnFilter;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mybatis.spring.annotation.MapperScan;
@@ -39,6 +42,8 @@ import org.springframework.transaction.annotation.Transactional;
         DbUnitTestExecutionListener.class
 })
 @Transactional
+//https://www.cnblogs.com/jishujinjie/p/7294894.html
+//DBUnit支持将准备的数据放置在一个xml文件中，在执行测试用例之前自动同步到数据库中，执行完成后数据也可以自动销毁。
 @DatabaseSetup("system_log.xml")
 public class SystemLogMapperTest {
 
@@ -51,12 +56,19 @@ public class SystemLogMapperTest {
         Assertions.assertThat(systemLog).isNotNull();
         System.out.println(JSON.toJSONString(systemLog));
     }
+
+    private DefaultColumnFilter d;
+
+        @ExpectedDatabase(table = "system_log",value = "system_log_exp.xml",assertionMode = DatabaseAssertionMode.NON_STRICT)
+//    @ExpectedDatabase(table = "system_log", value = "system_log_exp.xml", columnFilters = {DefaultColumnFilter.class})
+//    @ExpectedDatabase(value = "system_log_exp.xml",assertionMode = DatabaseAssertionMode.NON_STRICT)
     @Test
     public void testInsert() {
         SystemLog systemLog = new SystemLog();
-        systemLog.setMenuId(1).setOperationId(1).setContent("1");
+        systemLog.setMenuId(3).setOperationId(1).setContent("testInsert");
         Assertions.assertThat(systemLog.getId()).isNull();
         mapper.insert(systemLog);
         Assertions.assertThat(systemLog.getId()).isNotNull();
+        System.out.println("-------------------------------");
     }
 }
