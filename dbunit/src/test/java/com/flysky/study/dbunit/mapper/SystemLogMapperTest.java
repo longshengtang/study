@@ -9,6 +9,7 @@ import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.github.springtestdbunit.annotation.ExpectedDatabase;
 import com.github.springtestdbunit.assertion.DatabaseAssertionMode;
 import org.assertj.core.api.Assertions;
+import org.dbunit.database.QueryDataSet;
 import org.dbunit.dataset.filter.DefaultColumnFilter;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,6 +34,7 @@ import org.springframework.transaction.annotation.Transactional;
         DruidDataSourceAutoConfigure.class
         , MybatisAutoConfiguration.class
         , DataSourceTransactionManagerAutoConfiguration.class
+        , QueryDataSet.class
 })
 @TestExecutionListeners({
         DependencyInjectionTestExecutionListener.class,
@@ -71,4 +73,5 @@ public class SystemLogMapperTest {
         Assertions.assertThat(systemLog.getId()).isNotNull();
         System.out.println("-------------------------------");
     }
+
 }
