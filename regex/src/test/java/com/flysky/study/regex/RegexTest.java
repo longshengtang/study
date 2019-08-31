@@ -24,7 +24,7 @@ public class RegexTest {
     public void testMultiParagraph(){
         String src="...with.\n\n\n  \nTherefore...";
         String result = r.multiParagraph(src);
-        String actual="...with.\n<p>\n<p>\n<p>\nTherefore...0";
+        String actual="...with.\n<p>\n<p>\n<p>\nTherefore...";
         assertThat(result).isEqualTo(actual);
     }
 
