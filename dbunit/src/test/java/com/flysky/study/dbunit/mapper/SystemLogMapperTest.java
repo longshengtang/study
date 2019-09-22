@@ -10,7 +10,6 @@ import com.github.springtestdbunit.annotation.ExpectedDatabase;
 import com.github.springtestdbunit.assertion.DatabaseAssertionMode;
 import org.assertj.core.api.Assertions;
 import org.dbunit.database.QueryDataSet;
-import org.dbunit.dataset.filter.DefaultColumnFilter;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mybatis.spring.annotation.MapperScan;
@@ -59,9 +58,8 @@ public class SystemLogMapperTest {
         System.out.println(JSON.toJSONString(systemLog));
     }
 
-    private DefaultColumnFilter d;
 
-        @ExpectedDatabase(table = "system_log",value = "system_log_exp.xml",assertionMode = DatabaseAssertionMode.NON_STRICT)
+    @ExpectedDatabase(table = "system_log", value = "system_log_exp.xml", assertionMode = DatabaseAssertionMode.NON_STRICT)
 //    @ExpectedDatabase(table = "system_log", value = "system_log_exp.xml", columnFilters = {DefaultColumnFilter.class})
 //    @ExpectedDatabase(value = "system_log_exp.xml",assertionMode = DatabaseAssertionMode.NON_STRICT)
     @Test

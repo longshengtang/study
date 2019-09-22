@@ -22,10 +22,11 @@ public class RegexTest {
 
     @Test
     public void testMultiParagraph(){
-        String src="...with.\n\n\n  \nTherefore...";
+        String src="...with.\n\n\n\t \nTherefore...";
+//                 "^[ \t\r]*$"
+        String act="...with.\n<p>\n<p>\n<p>\nTherefore...";
         String result = r.multiParagraph(src);
-        String actual="...with.\n<p>\n<p>\n<p>\nTherefore...";
-        assertThat(result).isEqualTo(actual);
+        assertThat(result).isEqualTo(act);
     }
 
     @Test

@@ -10,6 +10,8 @@ spring:
       password: 12345678
       driver-class-name: com.mysql.cj.jdbc.Driver
 
+mytest:
+  abc: 1234
 #logging:
 #  level:
 #    root: info

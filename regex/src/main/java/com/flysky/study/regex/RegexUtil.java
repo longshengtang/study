@@ -38,7 +38,7 @@ public class RegexUtil {
     }
 
     public String multiParagraph(String src) {
-        Matcher matcher = Pattern.compile("^[ \t\r]*$",Pattern.MULTILINE).matcher(src);
+        Matcher matcher = Pattern.compile("^[ \t]*$",Pattern.MULTILINE).matcher(src);
         return matcher.replaceAll("<p>");
     }
 }
