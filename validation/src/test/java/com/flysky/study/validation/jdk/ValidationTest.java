@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import javax.validation.Validator;
 
@@ -14,6 +15,7 @@ import javax.validation.Validator;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = ValidationTest.class)
 @ComponentScan("com.flysky.study.validation.jdk")
+@EnableWebMvc
 public class ValidationTest {
 
     @Test
