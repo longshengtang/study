@@ -21,8 +21,9 @@ import org.springframework.transaction.annotation.Transactional;
 @DBUnit
 @DBRider
 @Transactional
-public class SystemLogMapperRiderTest {
+public class SystemLogMapperRiderTest  {
 
+//    @Autowired
     @Autowired
     private SystemLogMapper mapper;
 
