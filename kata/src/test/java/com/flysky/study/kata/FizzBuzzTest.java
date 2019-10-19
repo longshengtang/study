@@ -32,6 +32,14 @@ public class FizzBuzzTest {
         inputAndExpected(15, expected);
         inputAndExpected(30, expected);
     }
+    @Test
+    public void givenDivisibleByFiveNumberThenBuzz() {
+        String expected = "buzz";
+        inputAndExpected(5, expected);
+        inputAndExpected(10, expected);
+        inputAndExpected(20, expected);
+        inputAndExpected(35, expected);
+    }
 
     private void inputAndExpected(int input, String expected) {
         assertThat(f.find(input)).isEqualTo(expected);
