@@ -14,4 +14,13 @@ public class FizzBuzzTest {
         assertThat(f.find(14)).isEqualTo("14");
         assertThat(f.find(47)).isEqualTo("47");
     }
+    @Test
+    public void givenDivisibleByThreeNumberThenFizz() {
+        FizzBuzz f = new FizzBuzz();
+        assertThat(f.find(3)).isEqualTo("fizz");
+        assertThat(f.find(6)).isEqualTo("fizz");
+        assertThat(f.find(9)).isEqualTo("fizz");
+        assertThat(f.find(15)).isEqualTo("fizz");
+        assertThat(f.find(30)).isEqualTo("fizz");
+    }
 }
