@@ -1,26 +1,39 @@
 package com.flysky.study.kata;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class FizzBuzzTest {
+
+    private FizzBuzz f;
+
+    @Before
+    public void setUp() {
+        f = new FizzBuzz();
+    }
+
     @Test
     public void givenIndivisibleNumberThenRawNumber() {
-        FizzBuzz f = new FizzBuzz();
-        assertThat(f.find(1)).isEqualTo("1");
-        assertThat(f.find(2)).isEqualTo("2");
-        assertThat(f.find(4)).isEqualTo("4");
-        assertThat(f.find(14)).isEqualTo("14");
-        assertThat(f.find(47)).isEqualTo("47");
+        inputAndExpected(1, "1");
+        inputAndExpected(2, "2");
+        inputAndExpected(4, "4");
+        inputAndExpected(14, "14");
+        inputAndExpected(47, "47");
     }
+
     @Test
     public void givenDivisibleByThreeNumberThenFizz() {
-        FizzBuzz f = new FizzBuzz();
-        assertThat(f.find(3)).isEqualTo("fizz");
-        assertThat(f.find(6)).isEqualTo("fizz");
-        assertThat(f.find(9)).isEqualTo("fizz");
-        assertThat(f.find(15)).isEqualTo("fizz");
-        assertThat(f.find(30)).isEqualTo("fizz");
+        String expected = "fizz";
+        inputAndExpected(3, expected);
+        inputAndExpected(6, expected);
+        inputAndExpected(9, expected);
+        inputAndExpected(15, expected);
+        inputAndExpected(30, expected);
+    }
+
+    private void inputAndExpected(int input, String expected) {
+        assertThat(f.find(input)).isEqualTo(expected);
     }
 }
