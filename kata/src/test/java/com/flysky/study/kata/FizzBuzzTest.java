@@ -10,7 +10,7 @@ public class FizzBuzzTest {
     private FizzBuzz f;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp(){
         f = new FizzBuzz();
     }
 
@@ -22,7 +22,16 @@ public class FizzBuzzTest {
         calculate(7, "7");
         calculate(8, "8");
         calculate(11, "11");
-        calculate(13, "13");
+    }
+    @Test
+    public void givenContainCharOf3ThenFizz() {
+        String expected = "fizz";
+        calculate(13, expected);
+        calculate(23, expected);
+        calculate(43, expected);
+        calculate(31, expected);
+        calculate(32, expected);
+        calculate(34, expected);
     }
 
     private void calculate(int number, String expected) {
@@ -31,12 +40,15 @@ public class FizzBuzzTest {
 
     @Test
     public void givenDivisibleThreeThenFizz() {
-        calculate(3, "fizz");
-        calculate(6, "fizz");
-        calculate(9, "fizz");
-        calculate(12, "fizz");
-        calculate(15, "fizz");
-        calculate(30, "fizz");
+        String expected = "fizz";
+        calculate(3, expected);
+        calculate(6, expected);
+        calculate(9, expected);
+        calculate(12, expected);
+        calculate(15, expected);
+        calculate(30, expected);
+        calculate(51, expected);
+        calculate(53, expected);
     }
     @Test
     public void givenDivisibleFiveThenBuzz() {
@@ -44,6 +56,13 @@ public class FizzBuzzTest {
         calculate(10, "buzz");
         calculate(20, "buzz");
         calculate(25, "buzz");
-        calculate(35, "buzz");
+    }
+    @Test
+    public void givenContainCharOf5ThenBuzz() {
+        String expected = "buzz";
+        calculate(52, expected);
+        calculate(56, expected);
+        calculate(58, expected);
+        calculate(59, expected);
     }
 }
