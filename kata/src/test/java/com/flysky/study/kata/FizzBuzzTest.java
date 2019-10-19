@@ -10,38 +10,49 @@ public class FizzBuzzTest {
     private FizzBuzz f;
 
     @Before
-    public void setUp() {
+    public void setUp(){
         f = new FizzBuzz();
     }
 
     @Test
     public void givenIndivisibleNumberThenRawNumber() {
-        inputAndExpected(1, "1");
-        inputAndExpected(2, "2");
-        inputAndExpected(4, "4");
-        inputAndExpected(14, "14");
-        inputAndExpected(47, "47");
+        expectedForInput(1, "1");
+        expectedForInput(2, "2");
+        expectedForInput(4, "4");
+        expectedForInput(14, "14");
+        expectedForInput(47, "47");
     }
 
     @Test
-    public void givenDivisibleByThreeNumberThenFizz() {
-        String expected = "fizz";
-        inputAndExpected(3, expected);
-        inputAndExpected(6, expected);
-        inputAndExpected(9, expected);
-        inputAndExpected(15, expected);
-        inputAndExpected(30, expected);
+    public void givenDivisibleByThreeThenFizz() {
+        expectedForInput(3, "fizz");
+        expectedForInput(6, "fizz");
+        expectedForInput(9, "fizz");
     }
+
     @Test
-    public void givenDivisibleByFiveNumberThenBuzz() {
+    public void givenDivisibleByFiveThenBuzz() {
         String expected = "buzz";
-        inputAndExpected(5, expected);
-        inputAndExpected(10, expected);
-        inputAndExpected(20, expected);
-        inputAndExpected(35, expected);
+        expectedForInput(5, expected);
+        expectedForInput(10, expected);
+        expectedForInput(20, expected);
+        expectedForInput(35, expected);
     }
 
-    private void inputAndExpected(int input, String expected) {
+    @Test
+    public void givenDivisibleByFiveAndThreeThenFizzBuzz() {
+        String expected = "fizzBuzz";
+        expectedForInput(15, expected);
+        expectedForInput(30, expected);
+        expectedForInput(45, expected);
+        expectedForInput(60, expected);
+        expectedForInput(75, expected);
+        expectedForInput(90, expected);
+        expectedForInput(105, expected);
+        expectedForInput(120, expected);
+    }
+
+    private void expectedForInput(int input, String expected) {
         assertThat(f.find(input)).isEqualTo(expected);
     }
 }
