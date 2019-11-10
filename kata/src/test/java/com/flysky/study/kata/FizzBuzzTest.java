@@ -30,6 +30,7 @@ public class FizzBuzzTest {
         expectedForInput(9, "fizz");
     }
 
+
     @Test
     public void givenDivisibleByFiveThenBuzz() {
         String expected = "buzz";
@@ -38,6 +39,7 @@ public class FizzBuzzTest {
         expectedForInput(20, expected);
         expectedForInput(35, expected);
     }
+
 
     @Test
     public void givenDivisibleByFiveAndThreeThenFizzBuzz() {

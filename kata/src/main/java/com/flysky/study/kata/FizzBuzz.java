@@ -4,13 +4,14 @@ import static java.lang.String.valueOf;
 
 public class FizzBuzz {
     public String find(int input) {
-        if (isDivisibleBy(input, 3)&&isDivisibleBy(input, 5)) {
+        if (isDivisibleBy(input, 3) && isDivisibleBy(input, 5)) {
             return "fizzBuzz";
         }
         if (isDivisibleBy(input, 3)) {
             return "fizz";
         }
         if (isDivisibleBy(input, 5)) {
+            System.out.println("fdsa");
             return "buzz";
         }
         return valueOf(input);

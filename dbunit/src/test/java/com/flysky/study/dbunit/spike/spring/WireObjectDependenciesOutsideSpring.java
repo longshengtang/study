@@ -1,14 +1,6 @@
 
 package com.flysky.study.dbunit.spike.spring;
- 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
- 
-import java.util.stream.Stream;
- 
-import javax.annotation.Resource;
- 
-import org.junit.Ignore;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -18,17 +10,19 @@ import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableLoadTimeWeaving;
-import org.springframework.context.annotation.EnableLoadTimeWeaving.AspectJWeaving;
-import org.springframework.context.annotation.aspectj.EnableSpringConfigured;
- 
+
+import javax.annotation.Resource;
+import java.util.stream.Stream;
+
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+
 /**
  * Wire object dependencies outside a Spring Container->脱离容器管理创建的对象进行依赖注入
  * 
  * 脱离容器管理创建的对象进行依赖注入
  * 
- * @see http://www.javacodegeeks.com/2012/09/wire-object-dependencies-outside-spring.html 
- * 
+ *
  * @author doctor
  *
  * @time 2015年6月16日 上午9:33:54
@@ -86,7 +80,6 @@ public class WireObjectDependenciesOutsideSpring {
     }
  
     @Configuration
-    @EnableSpringConfigured
 //    @EnableLoadTimeWeaving(aspectjWeaving = AspectJWeaving.ENABLED)
     static class SpringConfig2 {
  

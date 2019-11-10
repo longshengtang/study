@@ -1,5 +1,6 @@
 package com.flysky.study.mybatis.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -27,6 +28,7 @@ public class SysUser implements Serializable {
 	 * @flysky_generated  2019-08-11 16:46:40.073
 	 */
 	@ApiModelProperty(value = "创建日期")
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date createTime;
 	/**
 	 * 密码

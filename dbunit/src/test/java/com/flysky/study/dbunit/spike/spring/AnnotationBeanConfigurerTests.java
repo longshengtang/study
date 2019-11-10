@@ -20,13 +20,11 @@ import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.aspectj.EnableSpringConfigured;
 
 import java.util.stream.Stream;
 
 /**
  * Tests that @EnableSpringConfigured properly registers an
- * {@link org.springframework.beans.factory.aspectj.AnnotationBeanConfigurerAspect},
  * just as does {@code <context:spring-configured>}.
  *
  * @author Chris Beams
@@ -48,7 +46,6 @@ public class AnnotationBeanConfigurerTests {
 
     @Configuration
 //	@ImportResource("org/springframework/beans/factory/aspectj/beanConfigurerTests-beans.xml")
-    @EnableSpringConfigured
     static class Config {
         @Bean
         MySpringBean getMySpringBean() {
