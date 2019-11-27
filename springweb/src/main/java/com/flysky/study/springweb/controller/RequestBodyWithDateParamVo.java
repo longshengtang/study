@@ -1,13 +1,11 @@
 package com.flysky.study.springweb.controller;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import java.util.Date;
 
 public class RequestBodyWithDateParamVo {
 //    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date validityDate;
-    @JsonFormat(pattern = "yyyy-MM-dd")
+//    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date birthDay;
 
     public Date getValidityDate() {

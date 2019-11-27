@@ -22,7 +22,7 @@ public class CustomDateFormat extends DateFormat {
 
     @Override
     public StringBuffer format(Date date, StringBuffer toAppendTo, FieldPosition fieldPosition) {
-        return new SimpleDateFormat("yyy-MM-dd HH:mm:ss").format(date, toAppendTo, fieldPosition);
+        return new SimpleDateFormat("yyy-MM-dd HH:mm:ss.SSSZ").format(date, toAppendTo, fieldPosition);
     }
 
     @Override

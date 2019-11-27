@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class RequestBodyParamController {
     @RequestMapping("dateBody")
     public RequestBodyWithDateParamVo dateBody(@RequestBody RequestBodyWithDateParamVo body) {
-        logger.info("参数：{}", JSON.toJSONStringWithDateFormat(body,"yyyy-MM-dd HH:mm:ss"));
+        logger.info("参数：{}", JSON.toJSONStringWithDateFormat(body,"yyyy-MM-dd HH:mm:ss.SSSZ"));
         return body;
     }
 

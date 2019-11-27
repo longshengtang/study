@@ -22,9 +22,7 @@
         <module>springweb</module>
         <module>spike</module>
         <module>validation</module>
-        <module>webmvc</module>
         <module>kata</module>
-        <module>util</module>
         <module>common</module>
     </modules>
 
