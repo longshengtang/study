@@ -24,6 +24,7 @@
         <module>validation</module>
         <module>kata</module>
         <module>common</module>
+        <module>reactor</module>
     </modules>
 
     <parent>
