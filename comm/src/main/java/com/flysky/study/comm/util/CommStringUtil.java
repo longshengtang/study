@@ -1,4 +1,4 @@
-package com.flysky.study.common.util;
+package com.flysky.study.comm.util;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -12,3 +12,4 @@ public class CommStringUtil {
         return result.toString();
     }
 }
+

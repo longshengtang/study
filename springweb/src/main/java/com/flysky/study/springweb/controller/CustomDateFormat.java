@@ -1,6 +1,6 @@
 package com.flysky.study.springweb.controller;
 
-import com.flysky.study.common.util.CommStringUtil;
+import com.flysky.study.comm.util.CommStringUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -8,8 +8,8 @@ import java.text.*;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
-import static com.flysky.study.common.util.DateUtil.parseDate;
-import static com.flysky.study.common.util.DateUtil.parseDateTime;
+import static com.flysky.study.comm.util.DateUtil.parseDate;
+import static com.flysky.study.comm.util.DateUtil.parseDateTime;
 
 public class CustomDateFormat extends DateFormat {
     private static final Logger logger = LoggerFactory.getLogger(CustomDateFormat.class);

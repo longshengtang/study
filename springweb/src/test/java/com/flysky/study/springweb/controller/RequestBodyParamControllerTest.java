@@ -1,7 +1,7 @@
 package com.flysky.study.springweb.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.flysky.study.common.util.DateUtil;
+import com.flysky.study.comm.util.DateUtil;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

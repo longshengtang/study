@@ -1,4 +1,4 @@
-package com.flysky.study.common.util;
+package com.flysky.study.comm.util;
 
 import java.time.Instant;
 import java.time.LocalDate;
