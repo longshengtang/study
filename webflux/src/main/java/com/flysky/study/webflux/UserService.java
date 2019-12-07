@@ -1,5 +1,7 @@
 package com.flysky.study.webflux;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
@@ -9,6 +11,7 @@ import reactor.core.publisher.Mono;
 public class UserService {
     @Autowired
     private UserRepository userRepository;
+
     /**
      * 保存或更新。
      * 如果传入的user没有id属性，由于username是unique的，在重复的情况下有可能报错，
@@ -23,6 +26,7 @@ public class UserService {
                                     return userRepository.save(user);   // 3
                                 }));
     }
+
     public Mono<Long> deleteByUsername(String username) {
         return userRepository.deleteByUsername(username);
     }
@@ -32,6 +36,10 @@ public class UserService {
     }
 
     public Flux<User> findAll() {
-        return userRepository.findAll();
+        Flux<User> result = userRepository.findAll();
+        logger.info("已经userRepository.findAll()返回了" + result);
+        return result;
     }
+
+    private static final Logger logger = LoggerFactory.getLogger(UserService.class);
 }

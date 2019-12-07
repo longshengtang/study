@@ -1,12 +1,12 @@
 package com.flysky.study.webflux;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-
-import java.time.Duration;
 
 @RestController
 @RequestMapping("/user")
@@ -31,7 +31,11 @@ public class UserController {
 
     @GetMapping(value = "", produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
     public Flux<User> findAll() {
-        return this.userService.findAll().delayElements(Duration.ofSeconds(2)).log();
+        Flux<User> result = this.userService.findAll();
+        logger.info("controller调用service返回：" + result);
+        return result/*.delayElements(Duration.ofSeconds(2))*/.log();
     }
+
+    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
 }
