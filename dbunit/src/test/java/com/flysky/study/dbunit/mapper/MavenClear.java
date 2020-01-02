@@ -6,6 +6,7 @@ import java.util.Arrays;
 public class MavenClear {
     public static void main(String[] args) {
         delete(new File("/Users/longlong/tools/develop/common/maven/repository/"));
+        delete(new File("/Users/longlong/.m2/repository"));
     }
 
     private static void delete(File file){
