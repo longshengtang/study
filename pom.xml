@@ -26,6 +26,7 @@
         <module>reactor</module>
         <module>comm</module>
         <module>webflux</module>
+        <module>spring-statemachine</module>
     </modules>
 
     <parent>
