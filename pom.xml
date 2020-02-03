@@ -25,8 +25,9 @@
         <module>kata</module>
         <module>reactor</module>
         <module>comm</module>
-        <module>webflux</module>
         <module>spring-statemachine</module>
+        <module>webflux-client</module>
+        <module>webflux-server</module>
     </modules>
 
     <parent>
@@ -84,6 +85,11 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
             <version>2.9.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
         </dependency>
 
         <dependency>
