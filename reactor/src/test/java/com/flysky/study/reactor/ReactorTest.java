@@ -12,6 +12,17 @@ import java.util.concurrent.atomic.AtomicLong;
 
 public class ReactorTest {
     @Test
+    public void test_handle_csv() {
+        Flux.just("id,name", "1,leijuan", "2,juven").switchOnFirst((signal, stringFlux) -> {
+            System.out.println("First: " + signal.get());
+            return stringFlux;
+//            return stringFlux.skip(1);
+        }).subscribe(text -> {
+            System.out.println(text);
+        });
+
+    }
+    @Test
     public void should_handle() {
         System.out.println("----------------------------------");
         System.out.println("----------------------------------");

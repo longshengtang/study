@@ -1,5 +1,0 @@
-server:
-  port: 5006
-spring:
-  application:
-    name: webflux-client
