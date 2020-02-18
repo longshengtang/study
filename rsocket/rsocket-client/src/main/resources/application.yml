@@ -1,0 +1,19 @@
+logging:
+    level:
+        root: info
+management:
+    endpoint:
+        health:
+            show-details: always
+    endpoints:
+        web:
+            exposure:
+                include: '*'
+rsocket:
+    brokers: tcp://localhost:9999
+    jwt-token: your_token_here
+server:
+    port: 8182
+spring:
+    application:
+        name: rsocket-user-client

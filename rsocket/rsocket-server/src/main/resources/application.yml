@@ -1,0 +1,22 @@
+logging:
+    level:
+        root: info
+management:
+    endpoint:
+        health:
+            show-details: always
+    endpoints:
+        web:
+            exposure:
+                include: '*'
+rsocket:
+    brokers: tcp://127.0.0.1:9999
+    jwt-token: your_token_here
+    metadata:
+        owner: leijuan
+    port: 42252
+server:
+    port: 0
+spring:
+    application:
+        name: rsocket-user-server
