@@ -19,4 +19,4 @@ server:
     port: 0
 spring:
     application:
-        name: rsocket-user-server
+        name: rsocket-broker-responder

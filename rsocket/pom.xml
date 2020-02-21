@@ -8,9 +8,9 @@
     <packaging>pom</packaging>
     <version>1.0.0-SNAPSHOT</version>
     <modules>
-        <module>rsocket-client</module>
+        <module>rsocket-broker-requester</module>
+        <module>rsocket-broker-responder</module>
         <module>user-service</module>
-        <module>rsocket-server</module>
         <module>interaction-model</module>
     </modules>
 

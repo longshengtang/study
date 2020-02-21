@@ -16,4 +16,4 @@ server:
     port: 8182
 spring:
     application:
-        name: rsocket-user-client
+        name: rsocket-broker-requester
