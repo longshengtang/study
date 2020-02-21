@@ -11,6 +11,7 @@
         <module>rsocket-client</module>
         <module>user-service</module>
         <module>rsocket-server</module>
+        <module>interaction-model</module>
     </modules>
 
     <properties>
@@ -29,6 +30,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
         </dependency>
     </dependencies>
 
