@@ -20,6 +20,9 @@
         <spring-boot.version>2.2.4.RELEASE</spring-boot.version>
         <rsocket.version>1.0.0-RC6</rsocket.version>
         <alibaba-cloud-broker.version>0.1.0-SNAPSHOT</alibaba-cloud-broker.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
     </properties>
 
     <dependencies>

@@ -11,7 +11,6 @@ import static com.flysky.study.rsocket.interaction.model.Server.HOST;
 import static com.flysky.study.rsocket.interaction.model.Server.PORT;
 
 public class Channel {
-
     public static void main(String[] args) {
         RSocketFactory.connect()
                 .transport(TcpClientTransport.create(HOST, PORT))
