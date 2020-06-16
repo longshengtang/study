@@ -10,6 +10,7 @@ import com.github.springtestdbunit.annotation.ExpectedDatabase;
 import com.github.springtestdbunit.assertion.DatabaseAssertionMode;
 import org.assertj.core.api.Assertions;
 import org.dbunit.database.QueryDataSet;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mybatis.spring.annotation.MapperScan;
@@ -26,6 +27,7 @@ import org.springframework.test.context.support.DirtiesContextTestExecutionListe
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 import org.springframework.transaction.annotation.Transactional;
 
+@Ignore
 @RunWith(SpringRunner.class)
 @MapperScan(basePackages = {"com.flysky.study.mybatis.mapper"})
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)

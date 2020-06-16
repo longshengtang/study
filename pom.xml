@@ -27,6 +27,9 @@
         <module>comm</module>
         <module>spring-statemachine</module>
         <module>rsocket</module>
+        <module>junit5</module>
+        <module>lambda</module>
+        <module>dbrider</module>
     </modules>
 
     <parent>
@@ -102,10 +105,15 @@
 
     <build>
         <plugins>
-            <plugin>
+            <!--<plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
+                <executions>
+                    <execution>
+                        <phase>none</phase>
+                    </execution>
+                </executions>
+            </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

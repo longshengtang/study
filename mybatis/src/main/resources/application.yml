@@ -5,9 +5,9 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     druid:
-      url: jdbc:mysql://localhost:3306/flysky
+      url: jdbc:mysql://10.1.1.11:3306/flysky
       username: root
-      password: 12345678
+      password: 123456
       driver-class-name: com.mysql.cj.jdbc.Driver
   autoconfigure:
 #    exclude: org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration

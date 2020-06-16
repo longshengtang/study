@@ -1,0 +1,22 @@
+spring:
+  devtools:
+    restart:
+      enabled: true
+  datasource:
+    driver-class-name: org.hsqldb.jdbc.JDBCDriver
+    url: jdbc:hsqldb:mem:mydb;DB_CLOSE_DELAY=-1;DATABASE_TO_UPPER=FALSE
+    username: sa
+    password: 342314
+    platform: hsqldb
+
+mytest:
+  abc: 1234
+#logging:
+#  level:
+#    root: info
+#    org.springframework: off
+
+#查看当前SpringBoot AutoConfig的一些配置项
+#debug: true
+mybatis:
+  mapper-locations: classpath:mapper/*.xml

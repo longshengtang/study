@@ -12,6 +12,7 @@
         <module>rsocket-broker-responder</module>
         <module>user-service</module>
         <module>interaction-model</module>
+        <module>rsocket-stream-client</module>
     </modules>
 
     <properties>
@@ -70,6 +71,7 @@
                         <goals>
                             <goal>repackage</goal>
                         </goals>
+                        <phase>none</phase>
                     </execution>
                 </executions>
             </plugin>

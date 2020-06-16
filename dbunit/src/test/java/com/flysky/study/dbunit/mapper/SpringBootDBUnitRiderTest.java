@@ -1,12 +1,12 @@
 package com.flysky.study.dbunit.mapper;
 
-import com.flysky.study.dbunit.config.TransactionalDevTestConfig;
 import com.github.database.rider.core.api.dataset.DataSetFormat;
 import com.github.database.rider.core.api.exporter.DataSetExportConfig;
 import com.github.database.rider.core.api.exporter.ExportDataSet;
 import com.github.database.rider.core.exporter.DataSetExporter;
 import com.github.database.rider.spring.api.DBRider;
 import org.dbunit.DatabaseUnitException;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import javax.sql.DataSource;
 import java.sql.SQLException;
 
+@Ignore
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @DBRider
