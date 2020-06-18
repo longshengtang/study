@@ -4,7 +4,7 @@
     <logger name="org.springframework" level="info"/>
     <logger name="com.flysky.study" level="trace"/>
 
-    <!--<logger name="org.dbunit" level="debug"/>
-    <logger name="org.h2" level="trace"/>-->
+    <!--<logger name="org.dbunit" level="debug"/>-->
+    <logger name="org.h2" level="trace"/>
     <logger name="org.hsqldb" level="trace"/>
 </configuration>

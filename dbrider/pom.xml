@@ -32,8 +32,8 @@
     <dependency>
       <groupId>com.github.database-rider</groupId>
       <artifactId>rider-spring</artifactId>
-      <version>1.7.2</version>
-      <!--<version>1.13.1</version>-->
+      <!--<version>1.7.2</version>-->
+      <version>1.13.1</version>
       <scope>test</scope>
       <exclusions>
         <exclusion>

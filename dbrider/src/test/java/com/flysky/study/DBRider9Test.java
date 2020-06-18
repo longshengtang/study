@@ -24,12 +24,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 )
 @DBRider
 @DBUnit(allowEmptyFields = true, caseSensitiveTableNames = true/*,caseInsensitiveStrategy = Orthography.LOWERCASE*/)
-@DataSet(value = "system_log.xml")
+@DataSet(value = "system_log2.xml")
 //@DataSet(value = "systemLog.yml")
 //@ActiveProfiles("mysql")
 @ActiveProfiles("h2")
 //@ActiveProfiles("hsql")
-public class DBRiderTest {
+public class DBRider9Test {
     @Autowired
     private SystemLogMapper logMapper;
 

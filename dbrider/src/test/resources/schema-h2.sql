@@ -1,4 +1,4 @@
-CREATE TABLE `system_log` (
+CREATE TABLE IF NOT EXISTS `system_log` (
 `id` int NOT NULL AUTO_INCREMENT,
 `menu_id` int DEFAULT NULL,
 `operation_id` int DEFAULT NULL,
