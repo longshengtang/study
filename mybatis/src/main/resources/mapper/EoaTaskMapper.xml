@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.flysky.study.mybatis.mapper.EoaTaskMapper">
+  <resultMap id="BaseResultMap" type="com.flysky.study.mybatis.model.EoaTask">
+    <!-- @flysky_generated_BaseResultMap  2020-06-20 17:55:59.088 -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="task_name" jdbcType="VARCHAR" property="taskName" />
+    <result column="task_detail_list" jdbcType="VARCHAR" property="taskDetailList" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="created_by" jdbcType="VARCHAR" property="createdBy" />
+    <result column="created_date" jdbcType="TIMESTAMP" property="createdDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!-- @flysky_generated_BaseColumnList  2020-06-20 17:55:59.088 -->
+    id, task_name, task_detail_list, status, created_by, created_date
+  </sql>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.flysky.study.mybatis.model.EoaTask" useGeneratedKeys="true">
+    <!-- @flysky_generated_insertSelective  2020-06-20 17:55:59.088 -->
+    insert into eoa_task
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="taskName != null and taskName !=''">
+        task_name,
+      </if>
+      <if test="taskDetailList != null and taskDetailList !=''">
+        task_detail_list,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="createdBy != null and createdBy !=''">
+        created_by,
+      </if>
+      <if test="createdDate != null">
+        created_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="taskName != null and taskName !=''">
+        #{taskName,jdbcType=VARCHAR},
+      </if>
+      <if test="taskDetailList != null and taskDetailList !=''">
+        #{taskDetailList,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createdBy != null and createdBy !=''">
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null">
+        #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <delete id="deleteById" parameterType="java.lang.Integer">
+    <!-- @flysky_generated_deleteById  2020-06-20 17:55:59.088 -->
+    delete from eoa_task
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <update id="updateByIdSelective" parameterType="com.flysky.study.mybatis.model.EoaTask">
+    <!-- @flysky_generated_updateByIdSelective  2020-06-20 17:55:59.088 -->
+    update eoa_task
+    <set>
+      <if test="taskName != null and taskName !=''">
+        task_name = #{taskName,jdbcType=VARCHAR},
+      </if>
+      <if test="taskDetailList != null and taskDetailList !=''">
+        task_detail_list = #{taskDetailList,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createdBy != null and createdBy !=''">
+        created_by = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null">
+        created_date = #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateById" parameterType="com.flysky.study.mybatis.model.EoaTask">
+    <!-- @flysky_generated_updateById  2020-06-20 17:55:59.089 -->
+    update eoa_task
+    set task_name = #{taskName,jdbcType=VARCHAR},
+      task_detail_list = #{taskDetailList,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      created_date = #{createdDate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <sql id="Base_where_List">
+    <!-- @flysky_generated_selectListWhereClause  2020-06-20 17:55:59.089 -->
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="id != null">
+         and id = #{id,jdbcType=INTEGER}
+      </if>
+      <if test="taskName != null and taskName != ''">
+         and task_name = #{taskName,jdbcType=VARCHAR}
+      </if>
+      <if test="taskDetailList != null and taskDetailList != ''">
+         and task_detail_list = #{taskDetailList,jdbcType=VARCHAR}
+      </if>
+      <if test="status != null">
+         and status = #{status,jdbcType=INTEGER}
+      </if>
+      <if test="createdBy != null and createdBy != ''">
+         and created_by = #{createdBy,jdbcType=VARCHAR}
+      </if>
+      <if test="createdDate != null">
+         and created_date = #{createdDate,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <select id="selectById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!-- @flysky_generated_selectById  2020-06-20 17:55:59.089 -->
+    select 
+    <include refid="Base_Column_List" />
+    from eoa_task
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectOne" parameterType="com.flysky.study.mybatis.model.EoaTask" resultMap="BaseResultMap">
+    <!-- @flysky_generated_selectOne  2020-06-20 17:55:59.089 -->
+    select 
+    <include refid="Base_Column_List" />
+    from eoa_task
+    <include refid="Base_where_List" />
+  </select>
+  <select id="selectList" parameterType="com.flysky.study.mybatis.model.EoaTask" resultMap="BaseResultMap">
+    <!-- @flysky_generated_selectList  2020-06-20 17:55:59.089 -->
+    select 
+    <include refid="Base_Column_List" />
+    from eoa_task
+    <include refid="Base_where_List" />
+  </select>
+</mapper>

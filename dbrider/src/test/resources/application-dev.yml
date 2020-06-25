@@ -1,0 +1,4 @@
+#查看当前SpringBoot AutoConfig的一些配置项
+#debug: true
+mybatis:
+  mapper-locations: classpath:mapper/*.xml

@@ -1,31 +1,9 @@
 spring:
-  devtools:
-    restart:
-      enabled: true
   datasource:
-
-#    driver-class-name: org.hsqldb.jdbc.JDBCDriver
-#    url: jdbc:hsqldb:mem:pu1;DB_CLOSE_DELAY=-1
-#    username: sa
-#    password: 342314
-#    schema: sql/hsql-db-init.sql
-#--mysql
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    druid:
+    platform: mysql
+    initialization-mode: always
+    mysql:
       url: jdbc:mysql://10.1.1.11:3306/flysky
       username: root
       password: 123456
-      driver-class-name: com.mysql.cj.jdbc.Driver
-
-
-mytest:
-  abc: 1234
-#logging:
-#  level:
-#    root: info
-#    org.springframework: off
-
-#查看当前SpringBoot AutoConfig的一些配置项
-#debug: true
-mybatis:
-  mapper-locations: classpath:mapper/*.xml
+      driverClassName: com.mysql.cj.jdbc.Driver
