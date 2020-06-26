@@ -23,15 +23,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
 @TransactionalDevTestConfigMysql
-//@TransactionalDevTestConfigH2
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE, classes = {EoaTaskServiceImpl.class, EoaTaskDao.class}
 )
-//多数据源只能在测试类中使用此注解，否则获取到的连接会使用其它测试创建的连接
+//多数据源只能在测试类中使用此注解，否则获取到的连接会使用其它测试创建的连接，因为默认会缓存连接
 @DBRider(dataSourceBeanName = "ds-mysql")
 
 @DataSet(value = "eoa_task.xml")
-public class EoaTaskServiceTest {
+public class EoaTaskServiceMySqlTest {
 
     @Test
     public void should_return_two_rows() {

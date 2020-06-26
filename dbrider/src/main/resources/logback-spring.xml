@@ -2,12 +2,13 @@
 <configuration>
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
     <logger name="org.springframework" level="info"/>
-    <logger name="com.flysky.study" level="info"/>
+    <logger name="com.flysky.study" level="trace"/>
 
 <!--
     <logger name="org.springframework.test.context.cache" level="debug"/>
 -->
     <logger name="org.dbunit" level="info"/>
+    <logger name="org.dbunit.database.DatabaseConnection" level="debug"/>
     <!--<logger name="org.h2" level="trace"/>
     <logger name="org.hsqldb" level="trace"/>-->
 </configuration>

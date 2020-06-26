@@ -6,8 +6,10 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration;
+import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.jdbc.Sql;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.lang.annotation.ElementType;
@@ -18,15 +20,15 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @ActiveProfiles(profiles = {"dev", "h2"})
-//@DBRider(dataSourceBeanName = "ds-h2")
 @DBUnit(allowEmptyFields = true, caseSensitiveTableNames = true)
 @MapperScan(basePackageClasses = {SysUserMapper.class})
+@Import(DataSourceConfigure.class)
 @ContextConfiguration(classes = {
-        DataSourceConfigure.class,
         DataSourceAutoConfiguration.class,
         MybatisAutoConfiguration.class
         , DataSourceTransactionManagerAutoConfiguration.class
 })
 @Transactional
+@Sql("classpath:ddl/schema-h2.sql")
 public @interface TransactionalDevTestConfigH2 {
 }

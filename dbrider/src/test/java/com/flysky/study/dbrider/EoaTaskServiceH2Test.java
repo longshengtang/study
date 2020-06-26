@@ -22,7 +22,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
 @TransactionalDevTestConfigH2
-//@TransactionalDevTestConfigMysql
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE, classes = {EoaTaskServiceImpl.class, EoaTaskDao.class}
 )

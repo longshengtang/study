@@ -1,7 +1,5 @@
 spring:
   datasource:
-    platform: mysql
-    initialization-mode: always
     mysql:
       url: jdbc:mysql://10.1.1.11:3306/flysky
       username: root

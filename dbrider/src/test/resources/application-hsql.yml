@@ -4,4 +4,3 @@ spring:
     url: jdbc:hsqldb:mem:mydb;DB_CLOSE_DELAY=-1;DATABASE_TO_UPPER=FALSE
     username: sa
     password: 342314
-    platform: hsqldb
