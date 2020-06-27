@@ -12,6 +12,7 @@ import javax.sql.DataSource;
 @Slf4j
 @Configuration
 public class DataSourceConfigure {
+
     @Bean(name = "ds-h2")
     @Profile("h2")
     @ConfigurationProperties(prefix = "spring.datasource.h2")
@@ -27,4 +28,5 @@ public class DataSourceConfigure {
         log.info("初始化dataSourceMySql");
         return new DriverManagerDataSource();
     }
+
 }
