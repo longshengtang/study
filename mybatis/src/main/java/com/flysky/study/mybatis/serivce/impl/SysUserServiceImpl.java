@@ -27,6 +27,17 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUser, Long> implement
         return 1;
     }
 
+    @Transactional
+    @Override
+    public void innerThrowException() {
+        SystemLog m = new SystemLog();
+        m.setMenuId(1);
+        m.setOperationId(2);
+        m.setContent("exception");
+        logMapper.insert(m);
+        throw new RuntimeException("内部方法异常，标记回滚事务");
+    }
+
     @Autowired
     private SystemLogMapper logMapper;
 

@@ -15,6 +15,7 @@ public class Application implements CommandLineRunner {
     private StateMachine<States, Events> stateMachine;
 
     public static void main(String[] args) {
+
         SpringApplication.run(Application.class, args);
     }
 

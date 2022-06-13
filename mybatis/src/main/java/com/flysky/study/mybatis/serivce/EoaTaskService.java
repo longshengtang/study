@@ -6,4 +6,10 @@ import java.util.List;
 
 public interface EoaTaskService {
     List<EoaTask> list();
+
+    void saveTwoRows();
+
+    void save(EoaTask eoaTask);
+
+    void propagationRequiredInnerExceptionCaughtByOuterMethod();
 }

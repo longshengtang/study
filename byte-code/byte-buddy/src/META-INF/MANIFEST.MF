@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: byte-buddy-agent-1.11.22.jar mockito-all-1.8.5.jar byte-budd
+ y-1.11.22.jar
+

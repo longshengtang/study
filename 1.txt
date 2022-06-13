@@ -1,0 +1,12 @@
+@ClassLoader[][
+    @DelegatingClassLoader[sun.reflect.DelegatingClassLoader@5ccd43c2],
+    @DelegatingClassLoader[sun.reflect.DelegatingClassLoader@59f95c5d],
+    @DelegatingClassLoader[sun.reflect.DelegatingClassLoader@7b74b592],
+    @DelegatingClassLoader[sun.reflect.DelegatingClassLoader@25084a1e],
+    @DelegatingClassLoader[sun.reflect.DelegatingClassLoader@40e0998f],
+    @AppClassLoader[sun.misc.Launcher$AppClassLoader@18b4aac2],
+    @ExtClassLoader[sun.misc.Launcher$ExtClassLoader@21a06946],
+    @DelegatingClassLoader[sun.reflect.DelegatingClassLoader@73fb1959],
+    @DelegatingClassLoader[sun.reflect.DelegatingClassLoader@1b8f77ea],
+    @DelegatingClassLoader[sun.reflect.DelegatingClassLoader@4ec542e8],
+]

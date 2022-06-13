@@ -1,0 +1,16 @@
+spring.arthas.enabled: true
+server:
+  port: 4321
+spring:
+  application:
+    name: fff
+arthas:
+  spring:
+    arthas:
+      enable: false
+  app-name: springweb
+  tunnel-server: ws://127.0.0.1:7777/ws
+logging:
+  level:
+    root: info
+    org.springframework: info

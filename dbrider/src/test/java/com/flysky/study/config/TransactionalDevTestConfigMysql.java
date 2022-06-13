@@ -28,6 +28,6 @@ import java.lang.annotation.Target;
         MybatisAutoConfiguration.class
         , DataSourceTransactionManagerAutoConfiguration.class
 })
-@Transactional
+@Transactional//这个注解使得TransactionalTestExecutionListener生效，对service的@Transactional不会生效。需要添加@EnableTransactionManagement注解才生效
 @Sql("classpath:ddl/schema-mysql.sql")
 public @interface TransactionalDevTestConfigMysql { }

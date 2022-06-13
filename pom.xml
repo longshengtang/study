@@ -29,6 +29,11 @@
         <module>junit5</module>
         <module>lambda</module>
         <module>dbrider</module>
+        <module>spring-test</module>
+        <module>byte-code</module>
+        <module>flink</module>
+        <module>es</module>
+        <module>jvm</module>
     </modules>
 
     <parent>
@@ -99,19 +104,35 @@
             <version>3.12.2</version>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>1.8.5</version>
+        </dependency>
     </dependencies>
 
+    <distributionManagement>
+        <repository>
+            <id>central</id>
+            <name>f914263931d1-releases</name>
+            <url>http://10.1.1.11:8081/artifactory/ssc-release-local</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>f914263931d1-snapshots</name>
+            <url>http://10.1.1.11:8081/artifactory/ssc-snapshot-local</url>
+        </snapshotRepository>
+    </distributionManagement>
     <build>
         <plugins>
             <!--<plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <executions>
+                &lt;!&ndash;<executions>
                     <execution>
                         <phase>none</phase>
                     </execution>
-                </executions>
+                </executions>&ndash;&gt;
             </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -121,6 +142,59 @@
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
+            </plugin>
+
+
+            <!-- 将源码打包插件 -->
+            <plugin>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.1</version>
+                <configuration>
+                    <attach>true</attach>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- deploy时只上传jar包到远程仓库的配置 -->
+            <plugin>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.8.2</version>
+                <executions>
+                    <execution>
+                        <id>default-deploy</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>deploy</goal>
+                        </goals>
+                        <!-- skip默认deploy插件的执行 -->
+                        <configuration>
+                            <skip>true</skip>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>deploy-file</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>deploy-file</goal>
+                        </goals>
+                        <configuration>
+                            <!-- 开发阶段上传到snapshot仓库，上线阶段上传到release仓库 -->
+                            <repositoryId>${project.distributionManagement.snapshotRepository.id}</repositoryId>
+                            <url>${project.distributionManagement.snapshotRepository.url}</url>
+                            <file>${project.build.directory}/${project.artifactId}.jar</file>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>${project.artifactId}</artifactId>
+                            <version>${project.version}</version>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

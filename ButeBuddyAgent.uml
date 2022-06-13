@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>net.bytebuddy.agent.ByteBuddyAgent.AttachmentProvider.Compound</OriginalElement>
+  <nodes>
+    <node x="828.0" y="100.0">net.bytebuddy.agent.ByteBuddyAgent.AttachmentProvider.ForJ9Vm</node>
+    <node x="144.0" y="421.0">net.bytebuddy.agent.ByteBuddyAgent.AgentProvider</node>
+    <node x="150.99999999999994" y="100.0">net.bytebuddy.agent.ByteBuddyAgent.AttachmentProvider.ForModularizedVm</node>
+    <node x="407.24999999999994" y="320.0">net.bytebuddy.agent.ByteBuddyAgent.AttachmentProvider.ForUserDefinedToolsJar</node>
+    <node x="624.785839160839" y="0.0">net.bytebuddy.agent.ByteBuddyAgent.AttachmentProvider.Accessor</node>
+    <node x="641.0" y="501.0">net.bytebuddy.agent.ByteBuddyAgent.ProcessProvider.ForCurrentVm.ForLegacyVm</node>
+    <node x="375.49999999999994" y="240.0">net.bytebuddy.agent.ByteBuddyAgent.AttachmentProvider</node>
+    <node x="479.0" y="501.0">net.bytebuddy.agent.ByteBuddyAgent.ProcessProvider.ForCurrentVm</node>
+    <node x="502.5" y="421.0">net.bytebuddy.agent.ByteBuddyAgent.ProcessProvider</node>
+    <node x="0.0" y="602.0">net.bytebuddy.agent.ByteBuddyAgent.AttachmentTypeEvaluator</node>
+    <node x="241.0" y="501.0">net.bytebuddy.agent.ByteBuddyAgent.AgentProvider.ForExistingAgent</node>
+    <node x="23.5" y="682.0">net.bytebuddy.agent.ByteBuddyAgent.AttachmentTypeEvaluator.ForJava9CapableVm</node>
+    <node x="20.0" y="100.0">net.bytebuddy.agent.ByteBuddyAgent.AttachmentProvider.Compound</node>
+    <node x="363.99999999999994" y="100.0">net.bytebuddy.agent.ByteBuddyAgent.AttachmentProvider.ForStandardToolsJarVm</node>
+    <node x="20.0" y="501.0">net.bytebuddy.agent.ByteBuddyAgent.AgentProvider.ForByteBuddyAgent</node>
+    <node x="596.0" y="100.0">net.bytebuddy.agent.ByteBuddyAgent.AttachmentProvider.ForEmulatedAttachment</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="net.bytebuddy.agent.ByteBuddyAgent.AgentProvider.ForExistingAgent" target="net.bytebuddy.agent.ByteBuddyAgent.AgentProvider">
+      <point x="0.0" y="-15.0" />
+      <point x="327.5" y="476.0" />
+      <point x="256.5" y="476.0" />
+      <point x="37.5" y="15.0" />
+    </edge>
+    <edge source="net.bytebuddy.agent.ByteBuddyAgent.AttachmentProvider.ForUserDefinedToolsJar" target="net.bytebuddy.agent.ByteBuddyAgent.AttachmentProvider">
+      <point x="-73.33333333333331" y="-15.0" />
+      <point x="443.91666666666663" y="295.0" />
+      <point x="422.74999999999994" y="295.0" />
+      <point x="-47.25" y="15.0" />
+    </edge>
+    <edge source="net.bytebuddy.agent.ByteBuddyAgent.AttachmentProvider.ForEmulatedAttachment" target="net.bytebuddy.agent.ByteBuddyAgent.AttachmentProvider">
+      <point x="53.0" y="15.0" />
+      <point x="755.0" y="190.0" />
+      <point x="513.6153846153845" y="190.0" />
+      <point x="43.61538461538464" y="-15.0" />
+    </edge>
+    <edge source="net.bytebuddy.agent.ByteBuddyAgent.AttachmentProvider.ForStandardToolsJarVm" target="net.bytebuddy.agent.ByteBuddyAgent.AttachmentProvider">
+      <point x="70.66666666666674" y="15.0" />
+      <point x="540.6666666666667" y="170.0" />
+      <point x="484.5384615384615" y="170.0" />
+      <point x="14.538461538461547" y="-15.0" />
+    </edge>
+    <edge source="net.bytebuddy.agent.ByteBuddyAgent.ProcessProvider.ForCurrentVm.ForLegacyVm" target="net.bytebuddy.agent.ByteBuddyAgent.ProcessProvider">
+      <point x="0.0" y="-15.0" />
+      <point x="708.0" y="476.0" />
+      <point x="640.8333333333334" y="476.0" />
+      <point x="55.33333333333337" y="15.0" />
+    </edge>
+    <edge source="net.bytebuddy.agent.ByteBuddyAgent.AgentProvider.ForByteBuddyAgent" target="net.bytebuddy.agent.ByteBuddyAgent.AgentProvider">
+      <point x="0.0" y="-15.0" />
+      <point x="110.5" y="476.0" />
+      <point x="181.5" y="476.0" />
+      <point x="-37.5" y="15.0" />
+    </edge>
+    <edge source="net.bytebuddy.agent.ByteBuddyAgent.AttachmentProvider.ForJ9Vm" target="net.bytebuddy.agent.ByteBuddyAgent.AttachmentProvider">
+      <point x="25.75" y="15.0" />
+      <point x="905.25" y="210.0" />
+      <point x="542.6923076923076" y="210.0" />
+      <point x="72.69230769230774" y="-15.0" />
+    </edge>
+    <edge source="net.bytebuddy.agent.ByteBuddyAgent.AttachmentProvider.Compound" target="net.bytebuddy.agent.ByteBuddyAgent.AttachmentProvider">
+      <point x="44.39999999999998" y="15.0" />
+      <point x="119.89999999999998" y="190.0" />
+      <point x="426.3846153846153" y="190.0" />
+      <point x="-43.61538461538464" y="-15.0" />
+    </edge>
+    <edge source="net.bytebuddy.agent.ByteBuddyAgent.ProcessProvider.ForCurrentVm" target="net.bytebuddy.agent.ByteBuddyAgent.ProcessProvider">
+      <point x="35.5" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="net.bytebuddy.agent.ByteBuddyAgent.AttachmentProvider.ForModularizedVm" target="net.bytebuddy.agent.ByteBuddyAgent.AttachmentProvider">
+      <point x="43.25" y="15.0" />
+      <point x="280.74999999999994" y="170.0" />
+      <point x="455.4615384615384" y="170.0" />
+      <point x="-14.538461538461547" y="-15.0" />
+    </edge>
+    <edge source="net.bytebuddy.agent.ByteBuddyAgent.AttachmentTypeEvaluator.ForJava9CapableVm" target="net.bytebuddy.agent.ByteBuddyAgent.AttachmentTypeEvaluator">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="465.5" y="356.0" />
+  <SelectedNodes>
+    <node>net.bytebuddy.agent.ByteBuddyAgent.AttachmentProvider.Accessor</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

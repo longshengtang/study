@@ -5,6 +5,7 @@ import com.flysky.study.mybatis.dao.EoaTaskDao;
 import com.flysky.study.mybatis.model.EoaTask;
 import com.flysky.study.mybatis.serivce.EoaTaskService;
 import com.flysky.study.mybatis.serivce.impl.EoaTaskServiceImpl;
+import com.flysky.study.mybatis.serivce.impl.SysUserServiceImpl;
 import com.github.database.rider.core.api.dataset.DataSet;
 import com.github.database.rider.spring.api.DBRider;
 import org.junit.Test;
@@ -23,7 +24,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @TransactionalDevTestConfigH2
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE, classes = {EoaTaskServiceImpl.class, EoaTaskDao.class}
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE, classes = {EoaTaskServiceImpl.class
+        , EoaTaskDao.class
+        , SysUserServiceImpl.class
+}
 )
 @DBRider(dataSourceBeanName = "ds-h2")
 @DataSet(value = "eoa_task.xml")

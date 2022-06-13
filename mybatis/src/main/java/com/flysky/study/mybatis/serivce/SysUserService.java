@@ -5,4 +5,6 @@ import com.flysky.study.mybatis.model.SysUser;
 
 public interface SysUserService extends BaseService<SysUser,Long> {
     int saveAndLog(SysUser user);
+
+    void innerThrowException();
 }

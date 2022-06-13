@@ -1,0 +1,16 @@
+spring.arthas.enabled: true
+server:
+  port: 1234
+spring:
+  application:
+    name: ttt
+  arthas:
+    enable: false
+arthas:
+  spring:
+    arthas:
+      enable: false
+  app-name: 10097
+  tunnel-server: ws://127.0.0.1:7777/ws
+  telnet-port: -1
+  http-port: -1

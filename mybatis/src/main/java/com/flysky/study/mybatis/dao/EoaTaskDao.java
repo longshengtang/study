@@ -17,4 +17,9 @@ public class EoaTaskDao {
     public List<EoaTask> list() {
         return eoaTaskMapper.selectList(null);
     }
+
+    public void save(EoaTask eoaTask) {
+        eoaTaskMapper.insert(eoaTask);
+    }
 }
+

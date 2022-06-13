@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.sun.tools.attach.VirtualMachine</OriginalElement>
+  <nodes>
+    <node x="15.5" y="240.0">sun.tools.attach.BsdAttachProvider</node>
+    <node x="259.0" y="80.0">com.sun.tools.attach.VirtualMachine</node>
+    <node x="27.0" y="80.0">com.sun.tools.attach.spi.AttachProvider</node>
+    <node x="247.5" y="240.0">sun.tools.attach.BsdVirtualMachine</node>
+    <node x="0.0" y="160.0">sun.tools.attach.HotSpotAttachProvider</node>
+    <node x="166.5" y="0.0">jdk.Exported</node>
+    <node x="232.0" y="160.0">sun.tools.attach.HotSpotVirtualMachine</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="sun.tools.attach.BsdVirtualMachine" target="sun.tools.attach.HotSpotVirtualMachine">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="sun.tools.attach.HotSpotVirtualMachine" target="com.sun.tools.attach.VirtualMachine">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.sun.tools.attach.VirtualMachine" target="jdk.Exported">
+      <point x="0.0" y="-15.0" />
+      <point x="338.0" y="55.0" />
+      <point x="249.75" y="55.0" />
+      <point x="27.75" y="15.0" />
+    </edge>
+    <edge source="sun.tools.attach.BsdAttachProvider" target="sun.tools.attach.HotSpotAttachProvider">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.sun.tools.attach.spi.AttachProvider" target="jdk.Exported">
+      <point x="0.0" y="-15.0" />
+      <point x="106.0" y="55.0" />
+      <point x="194.25" y="55.0" />
+      <point x="-27.75" y="15.0" />
+    </edge>
+    <edge source="sun.tools.attach.HotSpotAttachProvider" target="com.sun.tools.attach.spi.AttachProvider">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="222.0" y="135.0" />
+  <SelectedNodes>
+    <node>sun.tools.attach.BsdAttachProvider</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
