@@ -1,0 +1,25 @@
+dubbo:
+  protocol:
+    name: dubbo
+    # 这个dubbo的协议端口在一台服务器上的时候，每个项目的必须配置成不一样的（否则将启动失败），或者配置为-1，使用随机端口
+    port: -1
+  registry:
+    # 由于使用的是spring-cloud，因此这里使用spring-cloud的
+    address: spring-cloud://10.1.1.11:8848
+  scan:
+    # 配置需要扫描的注解包
+    base-packages: com.flysky.study.spring.cloud.nacos.dubbo.provider
+
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 10.1.1.11:8848
+        namespace: public
+  application:
+    name: dubbo-provider
+  main:
+    allow-circular-references: true
+
+server:
+  port: 7000

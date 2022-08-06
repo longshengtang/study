@@ -9,4 +9,8 @@ import java.util.List;
 public interface SysUserMapper extends BaseMapper<SysUser, Long> {
     @Select("select * from sys_user")
     List<SysUser> test();
+//    @Select("select * from sys_user")
+//    List<SysUser> selectById3();
+//    @Select("select * from sys_user")
+//    List<SysUser> selectById3(int a);
 }

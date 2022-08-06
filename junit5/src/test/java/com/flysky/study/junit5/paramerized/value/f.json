@@ -1,0 +1,39 @@
+{
+  "leftChild": {
+    "leftChild": {
+      "leftChild": {
+        "value": "H"
+      },
+      "rightChild": {
+        "value": "I"
+      },
+      "value": "D"
+    },
+    "rightChild": {
+      "leftChild": {
+        "value": "J"
+      },
+      "rightChild": {
+        "value": "K"
+      },
+      "value": "E"
+    },
+    "value": "B"
+  },
+  "rightChild": {
+    "leftChild": {
+      "leftChild": {
+        "value": "L"
+      },
+      "rightChild": {
+        "value": "M"
+      },
+      "value": "F"
+    },
+    "rightChild": {
+      "value": "G"
+    },
+    "value": "C"
+  },
+  "value": "A"
+}
