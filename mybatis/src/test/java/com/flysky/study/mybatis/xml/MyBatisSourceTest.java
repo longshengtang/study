@@ -3,6 +3,7 @@ package com.flysky.study.mybatis.xml;
 import com.flysky.study.mybatis.mapper.SysUserMapper;
 import com.flysky.study.mybatis.model.SysUser;
 import org.apache.ibatis.builder.xml.XMLMapperBuilder;
+import org.apache.ibatis.datasource.pooled.PooledDataSource;
 import org.apache.ibatis.datasource.unpooled.UnpooledDataSource;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.mapping.Environment;
@@ -17,6 +18,10 @@ import org.junit.Test;
 import javax.sql.DataSource;
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -28,7 +33,6 @@ public class MyBatisSourceTest {
      */
     @Test
     public void test_build_factory_from_xml() throws IOException {
-//        String resource = "org/mybatis/example/mybatis-config.xml";
         String resource = "mybatis/mybatis-config.xml";
         InputStream inputStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
@@ -36,7 +40,15 @@ public class MyBatisSourceTest {
         SysUserMapper sysUserMapper = sqlSession.getMapper(SysUserMapper.class);
         assertThat(sysUserMapper).isNotNull();
 
+        SysUserMapper mapper = sqlSession.getMapper(SysUserMapper.class);
+        //每次获取到的mapper都不一样，即使是同一个session
+        assertThat(sysUserMapper).isNotEqualTo(mapper);
+
         SysUser sysUser = sysUserMapper.selectById(1L);
+        sysUserMapper.selectById(2L);
+        //即使不同Mapper，只要session相同，那么相同参数会命中一级缓存
+        SysUser sysUser1 = mapper.selectById(1L);
+        System.out.println("sysUser==sysUser1 = " + (sysUser == sysUser1));
     }
 
     /**
@@ -87,5 +99,23 @@ public class MyBatisSourceTest {
         assertThat(sysUserMapper).isNotNull();
 
         SysUser sysUser = sysUserMapper.selectById(1L);
+    }
+
+    @Test
+    public void test_get_connection_from_PooledDataSource() throws SQLException {
+
+        String url="jdbc:mysql://10.1.1.11:3306/flysky";
+        String username="root";
+        String password="123456";
+        String driver="com.mysql.cj.jdbc.Driver";
+        PooledDataSource pooledDataSource = new PooledDataSource(driver,url,username,password);
+        Connection connection = pooledDataSource.getConnection();
+
+        PreparedStatement preparedStatement = connection.prepareStatement("select * from sys_user");
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            System.out.println("resultSet.getObject(1) = " + resultSet.getObject(1));
+        }
+
     }
 }
