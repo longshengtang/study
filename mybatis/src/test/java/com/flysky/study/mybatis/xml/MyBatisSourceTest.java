@@ -5,19 +5,20 @@ import com.flysky.study.mybatis.model.SysUser;
 import org.apache.ibatis.builder.xml.XMLMapperBuilder;
 import org.apache.ibatis.datasource.pooled.PooledDataSource;
 import org.apache.ibatis.datasource.unpooled.UnpooledDataSource;
+import org.apache.ibatis.executor.statement.BaseStatementHandler;
+import org.apache.ibatis.executor.statement.RoutingStatementHandler;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.mapping.Environment;
-import org.apache.ibatis.session.Configuration;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.apache.ibatis.session.*;
 import org.apache.ibatis.transaction.TransactionFactory;
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import javax.sql.DataSource;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Field;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -27,6 +28,26 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class MyBatisSourceTest {
 
+    @Test
+    public void t() throws NoSuchFieldException, IllegalAccessException {
+        BaseStatementHandler a = Mockito.mock(BaseStatementHandler.class);
+        System.out.println("A.class.getFields() = " + A.class.getFields().length);
+        System.out.println("A.class.getFields(h) = " + A.class.getDeclaredField("h"));
+        System.out.println("BaseStatementHandler.class.getFields().length = " + BaseStatementHandler.class.getFields().length);
+        System.out.println("BaseStatementHandler.class.getDeclaredField(\"configuration\") = " + BaseStatementHandler.class.getDeclaredField("configuration"));
+
+//        Field h = A.class.getDeclaredField("h");
+//        System.out.println("h = " + h);
+//        boolean accessible = h.isAccessible();
+//        h.setAccessible(true);
+//        Object o = h.get(a);
+//        System.out.println("o = " + o);
+//        h.setAccessible(accessible);
+    }
+
+    class A{
+       private final MyBatisSourceTest h=new MyBatisSourceTest();
+    }
     /**
      * 从xml中创建factory
      * @throws IOException
@@ -40,6 +61,7 @@ public class MyBatisSourceTest {
         SysUserMapper sysUserMapper = sqlSession.getMapper(SysUserMapper.class);
         assertThat(sysUserMapper).isNotNull();
 
+
         SysUserMapper mapper = sqlSession.getMapper(SysUserMapper.class);
         //每次获取到的mapper都不一样，即使是同一个session
         assertThat(sysUserMapper).isNotEqualTo(mapper);
@@ -48,7 +70,62 @@ public class MyBatisSourceTest {
         sysUserMapper.selectById(2L);
         //即使不同Mapper，只要session相同，那么相同参数会命中一级缓存
         SysUser sysUser1 = mapper.selectById(1L);
-        System.out.println("sysUser==sysUser1 = " + (sysUser == sysUser1));
+        System.out.println("sysUser==sysUser1 = " + (sysUser == sysUser1)+"---id="+sysUser1.getId());
+        sysUser1.setId(8l);
+        mapper.insert(sysUser1);
+
+        System.out.println("sysUser1.getId() = " + sysUser1.getId());
+
+        mapper.deleteById(4l);
+    }
+    /**
+     * 测试批量插入不提交不能获取主键id
+     * @throws IOException
+     */
+    @Test
+    public void test_batch_un_commit() throws IOException {
+        String resource = "mybatis/mybatis-config.xml";
+        InputStream inputStream = Resources.getResourceAsStream(resource);
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        SqlSession sqlSession = sqlSessionFactory.openSession(ExecutorType.BATCH);
+
+
+        SysUserMapper mapper = sqlSession.getMapper(SysUserMapper.class);
+
+        SysUser m = new SysUser();
+        m.setTestId(1);
+        m.setName("in");
+        m.setUserName("u");
+        mapper.insert(m);
+        assertThat(m.getId()).isNull();
+        sqlSession.commit();
+        assertThat(m.getId()).isNotNull();
+
+        System.out.println("m.getId() = " + m.getId());
+    }
+    /**
+     * 获取生成的主键
+     * @throws IOException
+     */
+    @Test
+    public void test_simple_executor_commit() throws IOException {
+        String resource = "mybatis/mybatis-config.xml";
+        InputStream inputStream = Resources.getResourceAsStream(resource);
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        SqlSession sqlSession = sqlSessionFactory.openSession(ExecutorType.SIMPLE);
+
+
+        SysUserMapper mapper = sqlSession.getMapper(SysUserMapper.class);
+
+        SysUser m = new SysUser();
+        m.setTestId(1);
+        m.setName("in");
+        m.setUserName("u");
+        assertThat(m.getId()).isNull();
+        mapper.insert(m);
+        assertThat(m.getId()).isNotNull();
+
+        System.out.println("m.getId() = " + m.getId());
     }
 
     /**

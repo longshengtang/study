@@ -1,9 +1,12 @@
 package com.flysky.study.mybatis.controller;
 
 
+import com.flysky.study.mybatis.mapper.EoaTaskMapper;
 import com.flysky.study.mybatis.mapper.SysUserMapper;
+import com.flysky.study.mybatis.model.EoaTask;
 import com.flysky.study.mybatis.model.SysUser;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,12 +23,27 @@ public class TestController {
     @Autowired
     private SysUserMapper sysUserMapper;
 
+    @Autowired
+    private EoaTaskMapper eoaTaskMapper;
+
+    @Transactional
     @GetMapping("test")
     public Object test() {
         System.out.println("fsjdfa;f");
         SysUser/**/ sysUser = sysUserMapper.selectById(1L);
 //        System.out.println(sysUser.getId() + " 333 " + sysUser.getName());
         return sysUser;
+    }
+    @GetMapping("t")
+    public Object t() {
+        System.out.println("fsjdfa;f");
+        EoaTask model = new EoaTask().setTaskName("fdsa").setCreatedBy("'fdas")
+                .setStatus(3)
+                ;
+
+        int result  = eoaTaskMapper.insert(model);
+//        System.out.println(sysUser.getId() + " 333 " + sysUser.getName());
+        return result;
     }
 
     public static void main(String[] args) {
