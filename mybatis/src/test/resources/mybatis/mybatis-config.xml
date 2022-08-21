@@ -5,6 +5,7 @@
 <configuration>
     <plugins>
         <plugin interceptor="com.flysky.study.mybatis.xml.SqlCostInterceptor" />
+        <plugin interceptor="com.github.pagehelper.PageInterceptor" />
     </plugins>
     <environments default="development">
         <environment id="development">

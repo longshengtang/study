@@ -2,6 +2,7 @@ package com.flysky.study.mybatis.xml;
 
 import com.flysky.study.mybatis.mapper.SysUserMapper;
 import com.flysky.study.mybatis.model.SysUser;
+import com.github.pagehelper.PageHelper;
 import org.apache.ibatis.builder.xml.XMLMapperBuilder;
 import org.apache.ibatis.datasource.pooled.PooledDataSource;
 import org.apache.ibatis.datasource.unpooled.UnpooledDataSource;
@@ -23,6 +24,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -126,6 +128,24 @@ public class MyBatisSourceTest {
         assertThat(m.getId()).isNotNull();
 
         System.out.println("m.getId() = " + m.getId());
+    }
+    /**
+     * 获取生成的主键
+     * @throws IOException
+     */
+    @Test
+    public void test_page_helper() throws IOException {
+        String resource = "mybatis/mybatis-config.xml";
+        InputStream inputStream = Resources.getResourceAsStream(resource);
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        SqlSession sqlSession = sqlSessionFactory.openSession(ExecutorType.SIMPLE);
+
+
+        SysUserMapper mapper = sqlSession.getMapper(SysUserMapper.class);
+        PageHelper.startPage(1,3);
+        List<SysUser> users = mapper.selectList(null);
+        System.out.println("users.size() = " + users.size());
+        System.out.println("users = " + users);
     }
 
     /**
