@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <plugins>
-        <plugin interceptor="com.flysky.study.mybatis.xml.SqlCostInterceptor" />
+        <plugin interceptor="com.flysky.study.mybatis.xml.FinalSqlInterceptor" />
         <plugin interceptor="com.github.pagehelper.PageInterceptor" />
     </plugins>
     <environments default="development">

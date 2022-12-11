@@ -20,7 +20,7 @@ public class MonitorRuntimeTest {
         DynamicType.Unloaded<?> dynamicType = new ByteBuddy()
                 .subclass(BizMethod.class)
                 .method(ElementMatchers.named("queryUserInfo"))
-                .intercept(MethodDelegation.to(MonitorDemo.class))
+                .intercept(MethodDelegation.to(MonitorRuntime.class))
                 .make();
 
         // 加载类
@@ -31,7 +31,7 @@ public class MonitorRuntimeTest {
         clazz.getMethod("queryUserInfo", String.class, String.class).invoke(clazz.newInstance(), "10001", "Adhl9dkl");
     }
 
-    @Ignore
+//    @Ignore
     @Test
     public void test() throws NoSuchMethodException, IllegalAccessException, InstantiationException, InvocationTargetException {
 

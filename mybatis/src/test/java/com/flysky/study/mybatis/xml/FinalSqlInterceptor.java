@@ -27,7 +27,7 @@ import java.util.Date;
 import java.util.List;
 
 @Intercepts({
-        //如果同时监听两个接口，那么会会多一次代理，性能不是很好。推荐只输出sql
+        //如果同时监听两个接口，那么会多一次代理，性能不是很好。推荐只输出sql
         //只代理StatementHandler无法获取执行的方法名称。但性能较高
         @Signature(type = StatementHandler.class, method = "query", args = {Statement.class, ResultHandler.class}),
         @Signature(type = StatementHandler.class, method = "update", args = {Statement.class}),
@@ -40,8 +40,8 @@ import java.util.List;
 }
 
 )
-public class SqlCostInterceptor implements Interceptor {
-    private static final Logger logger = LoggerFactory.getLogger(SqlCostInterceptor.class);
+public class FinalSqlInterceptor implements Interceptor {
+    private static final Logger logger = LoggerFactory.getLogger(FinalSqlInterceptor.class);
     private static volatile Configuration configuration;
     private static volatile boolean initedConfiguration = false;
 
@@ -88,7 +88,7 @@ public class SqlCostInterceptor implements Interceptor {
             return configuration;
         }
         if (configuration == null) {
-            synchronized (SqlCostInterceptor.class) {
+            synchronized (FinalSqlInterceptor.class) {
                 if (configuration == null) {
                     initedConfiguration = true;//只会被执行一次
                     try {

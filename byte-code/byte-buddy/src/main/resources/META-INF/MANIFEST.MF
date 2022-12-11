@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
-Premain-Class: com.flysky.study.bytecode.bytebuddy.agent.SystemLoadAgent
+Premain-Class: com.flysky.study.bytecode.bytebuddy.F.PremainAgent
 Can-Redefine-Classes: true
 Can-Retransform-Classes: true

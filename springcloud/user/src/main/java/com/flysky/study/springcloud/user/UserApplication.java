@@ -15,6 +15,11 @@ public class UserApplication {
         return "Hello world";
     }
 
+    @RequestMapping("/u")
+    public User user() {
+        return new User("user",3,"男");
+    }
+
     public static void main(String[] args) {
         new SpringApplicationBuilder(UserApplication.class).web(WebApplicationType.SERVLET).run(args);
     }

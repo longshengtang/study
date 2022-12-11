@@ -18,6 +18,7 @@ public class BootstrapAgent {
     public static void main(String[] args) throws Exception {
         premain(null, ByteBuddyAgent.install());
         BizMethod bm = new BizMethod();
+        long start = System.currentTimeMillis();
         String s = bm.queryUserInfo("123", "455");
         System.out.println(s);
 //        HttpURLConnection urlConnection = (HttpURLConnection) new URL("http://www.google.com").openConnection();

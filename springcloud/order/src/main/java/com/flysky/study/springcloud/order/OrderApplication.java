@@ -7,9 +7,7 @@ import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.openfeign.EnableFeignClients;
-import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -52,6 +50,10 @@ public class OrderApplication {
     public String feignClient() {
         return "client invoke server by feign:" + userClient.hello();
     }
+    @RequestMapping("/u")
+    public Object user() {
+        return  userClient.user();
+    }
 
     /**
      * 直接借助eureka+RestTemplate+LoadBalance+注册的服务名进行调用<br>
@@ -68,11 +70,6 @@ public class OrderApplication {
         new SpringApplicationBuilder(OrderApplication.class).web(WebApplicationType.SERVLET).run(args);
     }
 
-    @FeignClient("user")
-    interface UserClient {
-        @RequestMapping(value = "/user", method = RequestMethod.GET)
-        String hello();
-    }
 
     @Autowired
     private UserClient userClient;
