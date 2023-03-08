@@ -22,7 +22,7 @@
     <properties>
         <java.version>1.8</java.version>
         <!--<dubbo.version>3.0.0</dubbo.version>-->
-        <dubbo.version>2.7.12</dubbo.version>
+        <dubbo.version>2.7.21</dubbo.version>
         <zk.version>3.0.0</zk.version>
     </properties>
     <dependencies>
