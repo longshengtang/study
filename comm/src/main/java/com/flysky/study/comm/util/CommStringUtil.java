@@ -9,6 +9,7 @@ public class CommStringUtil {
         final Writer result = new StringWriter();
         final PrintWriter printWriter = new PrintWriter(result);
         e.printStackTrace(printWriter);
+        System.out.pringln("----------------------");
         return result.toString();
     }
 }
